@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我的第一个博客</title>
+    <title>我的博客</title>
     <style>
-        /* 按钮样式：绿色背景，白色文字 */
         .my-button {
             padding: 10px 20px;
             background: #28a745;
@@ -15,7 +14,22 @@
 </head>
 <body>
     <h1>欢迎来到我的博客！🎉</h1>
-    <!-- 添加一个跳转按钮 -->
-    <a href="https://462b5b58.r8.vip.cpolar.cn/" class="my-button">点我去GitHub主页！</a>
+    <a href="#" id="profile-link" class="my-button">加载中...</a>
+
+    <!-- 添加 JavaScript 读取配置文件 -->
+    <script>
+        // 步骤1：从 config.json 读取链接
+        fetch('https://github.com/daife/daife.github.io/blob/main/config.json') // ← 替换成你的真实URL
+            .then(response => response.json())
+            .then(data => {
+                // 步骤2：找到按钮并设置链接
+                const button = document.getElementById('profile-link');
+                button.href = data.profile_url;
+                button.textContent = '点我去GitHub主页！';
+            })
+            .catch(error => {
+                console.error('出错啦，检查配置文件名称是否正确！', error);
+            });
+    </script>
 </body>
 </html>
