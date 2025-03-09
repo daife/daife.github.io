@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>博客</title>
+    <title>点击即跳转的实时博客</title>
     <style>
         .my-button {
             padding: 12px 24px;
@@ -26,64 +26,53 @@
 </head>
 <body>
     <h1>欢迎访问我的博客！</h1>
-    <a href="#" id="profile-link" class="my-button">点击加载配置</a>
+    <a href="#" id="profile-link" class="my-button">点击获取最新链接</a>
 
     <script>
         const button = document.getElementById('profile-link');
-      
-        // 点击事件处理函数
-        async function handleButtonClick(event) {
-            event.preventDefault(); // 阻止默认跳转行为
-            await fetchLatestConfig();
-        }
+        let isProcessing = false;
 
-        // 绑定点击事件
-        button.addEventListener('click', handleButtonClick);
-
-        // 配置加载逻辑
-        async function fetchLatestConfig() {
-            if (button.classList.contains('loading')) return;
+        // 点击事件处理
+        async function handleClick(event) {
+            event.preventDefault();
+            if (isProcessing) return;
           
             try {
-                // 进入加载状态
-                button.textContent = '配置加载中...';
+                isProcessing = true;
+                button.textContent = '正在获取最新地址...';
                 button.classList.add('loading');
 
-                // 获取最新提交 SHA
-                const commitsResponse = await fetch(
+                // 获取最新 Commit SHA
+                const commitsRes = await fetch(
                     'https://api.github.com/repos/daife/daife.github.io/commits?path=config.json&per_page=1',
                     { cache: 'no-cache' }
                 );
-              
-                if (!commitsResponse.ok) throw new Error('GitHub API 请求失败');
-                const commits = await commitsResponse.json();
+                if (!commitsRes.ok) throw new Error('请求提交记录失败');
+                const commits = await commitsRes.json();
                 const sha = commits[0].sha;
 
                 // 获取配置文件
-                const configResponse = await fetch(
+                const configRes = await fetch(
                     `https://raw.githubusercontent.com/daife/daife.github.io/${sha}/config.json?t=${Date.now()}`,
                     { cache: 'no-cache' }
                 );
-              
-                if (!configResponse.ok) throw new Error('配置文件请求失败');
-                const config = await configResponse.json();
+                if (!configRes.ok) throw new Error('请求配置文件失败');
+                const config = await configRes.json();
 
-                // 更新按钮状态
-                button.href = config.profile_url;
-                button.textContent = '点击跳转';
-                button.removeEventListener('click', handleButtonClick); // 移除旧监听器
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.location.href = config.profile_url; // 直接跳转
-                });
+                // 成功获取后自动跳转
+                window.location.href = config.profile_url;
             } catch (error) {
-                console.error('加载失败:', error);
-                button.textContent = '加载失败，点击重试';
+                console.error('错误:', error);
+                button.textContent = '获取失败，点击重试';
                 button.href = '#';
             } finally {
+                isProcessing = false;
                 button.classList.remove('loading');
             }
         }
+
+        // 绑定点击事件
+        button.addEventListener('click', handleClick);
     </script>
 </body>
 </html>
