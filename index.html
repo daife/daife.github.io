@@ -1,35 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我的博客</title>
+    <title>我的实时更新博客</title>
     <style>
         .my-button {
-            padding: 10px 20px;
-            background: #28a745;
+            padding: 12px 24px;
+            background: #2ea44f;
             color: white;
+            border-radius: 6px;
             text-decoration: none;
-            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .my-button:hover {
+            background: #22863a;
+        }
+        .loading {
+            opacity: 0.7;
+            cursor: wait;
         }
     </style>
 </head>
 <body>
-    <h1>欢迎来到我的博客！🎉若链接无效，请五分钟后刷新</h1>
-    <a href="#" id="profile-link" class="my-button">加载中...</a>
+    <h1>欢迎访问我的博客！</h1>
+    <a href="#" id="profile-link" class="my-button">加载配置中...</a>
 
-    <!-- 添加 JavaScript 读取配置文件 -->
     <script>
-        // 步骤1：从 config.json 读取链接
-        fetch('https://raw.githubusercontent.com/daife/daife.github.io/refs/heads/main/config.json?t='+Date.now()) // ← 替换成你的真实URL
-            .then(response => response.json())
-            .then(data => {
-                // 步骤2：找到按钮并设置链接
-                const button = document.getElementById('profile-link');
-                button.href = data.profile_url;
-                button.textContent = '点我去GitHub主页！';
-            })
-            .catch(error => {
-                console.error('出错啦，检查配置文件名称是否正确！', error);
-            });
+        // 步骤1：获取最新 Commit SHA
+        function fetchLatestConfig() {
+            // 添加 loading 状态
+            const button = document.getElementById('profile-link');
+            button.classList.add('loading');
+          
+            fetch('https://api.github.com/repos/daife/daife.github.io/commits?path=config.json&per_page=1')
+                .then(response => {
+                    if (!response.ok) throw new Error('GitHub API 请求失败');
+                    return response.json();
+                })
+                .then(commits => {
+                    const sha = commits[0].sha;
+                    // 步骤2：用 SHA 构建无缓存链接
+                    const configUrl = `https://raw.githubusercontent.com/daife/daife.github.io/${sha}/config.json`;
+                    return fetch(configUrl);
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('配置文件请求失败');
+                    return response.json();
+                })
+                .then(config => {
+                    // 更新按钮链接
+                    const button = document.getElementById('profile-link');
+                    button.href = config.profile_url;
+                    button.textContent = '点我跳转';
+                    button.classList.remove('loading');
+                })
+                .catch(error => {
+                    console.error('错误:', error);
+                    const button = document.getElementById('profile-link');
+                    button.textContent = '加载失败，点击重试';
+                    button.onclick = () => {
+                        fetchLatestConfig();
+                        button.textContent = '重新加载中...';
+                    };
+                });
+        }
+
+        // 页面加载时执行
+        fetchLatestConfig();
     </script>
 </body>
 </html>
