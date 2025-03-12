@@ -27,10 +27,13 @@
 <body>
     <h1>欢迎访问我的博客！</h1>
     <a href="#" id="profile-link" class="my-button">点击获取最新链接</a>
+    <a href="#" id="copy-ssh-link" class="my-button">点击复制 SSH 命令</a>
 
     <script>
-        const button = document.getElementById('profile-link');
+        const profileButton = document.getElementById('profile-link');
+        const copyButton = document.getElementById('copy-ssh-link');
         let isProcessing = false;
+        let config = null;
 
         // 点击事件处理
         async function handleClick(event) {
@@ -39,8 +42,8 @@
           
             try {
                 isProcessing = true;
-                button.textContent = '正在获取最新地址...';
-                button.classList.add('loading');
+                profileButton.textContent = '正在获取最新地址...';
+                profileButton.classList.add('loading');
 
                 // 获取最新 Commit SHA
                 const commitsRes = await fetch(
@@ -57,22 +60,59 @@
                     { cache: 'no-cache' }
                 );
                 if (!configRes.ok) throw new Error('请求配置文件失败');
-                const config = await configRes.json();
+                config = await configRes.json();
 
                 // 成功获取后自动跳转
                 window.location.href = config.profile_url;
             } catch (error) {
                 console.error('错误:', error);
-                button.textContent = '获取失败，点击重试';
-                button.href = '#';
+                profileButton.textContent = '获取失败，点击重试';
+                profileButton.href = '#';
             } finally {
                 isProcessing = false;
-                button.classList.remove('loading');
+                profileButton.classList.remove('loading');
             }
         }
 
         // 绑定点击事件
-        button.addEventListener('click', handleClick);
+        profileButton.addEventListener('click', handleClick);
+
+        // 复制 SSH 命令到剪切板
+        copyButton.addEventListener('click', async (event) => {
+            event.preventDefault();
+            if (!config) {
+                try {
+                    // 获取最新 Commit SHA
+                    const commitsRes = await fetch(
+                        'https://api.github.com/repos/daife/daife.github.io/commits?path=config.json&per_page=1',
+                        { cache: 'no-cache' }
+                    );
+                    if (!commitsRes.ok) throw new Error('请求提交记录失败');
+                    const commits = await commitsRes.json();
+                    const sha = commits[0].sha;
+
+                    // 获取配置文件
+                    const configRes = await fetch(
+                        `https://raw.githubusercontent.com/daife/daife.github.io/${sha}/config.json?t=${Date.now()}`,
+                        { cache: 'no-cache' }
+                    );
+                    if (!configRes.ok) throw new Error('请求配置文件失败');
+                    config = await configRes.json();
+                } catch (error) {
+                    console.error('错误:', error);
+                    return;
+                }
+            }
+
+            if (config && config.ssh_command) {
+                try {
+                    await navigator.clipboard.writeText(config.ssh_command);
+                    alert('SSH 命令已复制到剪切板');
+                } catch (error) {
+                    console.error('复制到剪切板失败:', error);
+                }
+            }
+        });
     </script>
 </body>
 </html>
