@@ -28,10 +28,12 @@
     <h1>欢迎访问我的博客！</h1>
     <a href="#" id="profile-link" class="my-button">点击获取最新链接</a>
     <a href="#" id="copy-ssh-link" class="my-button">点击复制 SSH 命令</a>
+    <a href="#" id="copy-vnc-link" class="my-button">点击复制 VNC 命令</a>
 
     <script>
         const profileButton = document.getElementById('profile-link');
         const copyButton = document.getElementById('copy-ssh-link');
+        const copyVncButton = document.getElementById('copy-vnc-link');
         let isProcessing = false;
         let config = null;
 
@@ -108,6 +110,43 @@
                 try {
                     await navigator.clipboard.writeText(config.ssh_command);
                     alert('SSH 命令已复制到剪切板');
+                } catch (error) {
+                    console.error('复制到剪切板失败:', error);
+                }
+            }
+        });
+
+        // 复制 VNC 命令到剪切板
+        copyVncButton.addEventListener('click', async (event) => {
+            event.preventDefault();
+            if (!config) {
+                try {
+                    // 获取最新 Commit SHA
+                    const commitsRes = await fetch(
+                        'https://api.github.com/repos/daife/daife.github.io/commits?path=config.json&per_page=1',
+                        { cache: 'no-cache' }
+                    );
+                    if (!commitsRes.ok) throw new Error('请求提交记录失败');
+                    const commits = await commitsRes.json();
+                    const sha = commits[0].sha;
+
+                    // 获取配置文件
+                    const configRes = await fetch(
+                        `https://raw.githubusercontent.com/daife/daife.github.io/${sha}/config.json?t=${Date.now()}`,
+                        { cache: 'no-cache' }
+                    );
+                    if (!configRes.ok) throw new Error('请求配置文件失败');
+                    config = await configRes.json();
+                } catch (error) {
+                    console.error('错误:', error);
+                    return;
+                }
+            }
+
+            if (config && config.vnc_command) {
+                try {
+                    await navigator.clipboard.writeText(config.vnc_command);
+                    alert('VNC 命令已复制到剪切板');
                 } catch (error) {
                     console.error('复制到剪切板失败:', error);
                 }
