@@ -1,5 +1,5 @@
 {
-  "profile_url": "http://546edae0.r8.vip.cpolar.cn",
-  "ssh_command": "ssh root@21.tcp.vip.cpolar.cn -p 10157",
+  "profile_url": "http://3439bc3d.r8.vip.cpolar.cn",
+  "ssh_command": "ssh root@21.tcp.vip.cpolar.cn -p 11552",
   "vnc_command": "21.tcp.vip.cpolar.cn::10152"
 }
