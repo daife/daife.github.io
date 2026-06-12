@@ -1,157 +1,286 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>点击即跳转的实时博客</title>
-    <style>
-        .my-button {
-            padding: 12px 24px;
-            background: #2ea44f;
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: background 0.3s;
-            cursor: pointer;
-        }
-        .my-button:hover {
-            background: #22863a;
-        }
-        .my-button.loading {
-            opacity: 0.7;
-            cursor: wait;
-        }
-    </style>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>daife · project portfolio</title>
+<style>
+:root{--bg:#0d1117;--bg2:#161b22;--bg3:#1c2333;--border:#30363d;--text:#e6edf3;--text2:#8b949e;--accent:#58a6ff;--green:#3fb950;--orange:#d29922;--purple:#bc8cff;--pink:#f778ba;--red:#f85149;--card-bg:#161b22}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.header{text-align:center;padding:60px 20px 40px;background:linear-gradient(180deg,var(--bg3) 0%,var(--bg) 100%)}
+.avatar{width:96px;height:96px;border-radius:50%;border:3px solid var(--accent);margin-bottom:16px;background:var(--bg3);display:inline-flex;align-items:center;justify-content:center;font-size:40px;color:var(--accent);font-weight:700}
+.header h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}
+.header .handle{color:var(--text2);font-size:1rem;margin-bottom:12px}
+.header .bio{color:var(--text2);max-width:500px;margin:0 auto 20px;font-size:0.95rem}
+.header .badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:0.8rem;margin:0 4px 8px;border:1px solid var(--border);color:var(--text2)}
+.stats{display:flex;justify-content:center;gap:40px;padding:30px 0;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:1.8rem;font-weight:700;color:var(--accent)}
+.stat-label{font-size:0.8rem;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px}
+.category{margin:40px 0}
+.category h2{font-size:1.4rem;font-weight:600;margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.category h2 .emoji{font-size:1.3rem}
+.repo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.repo-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.15s}
+.repo-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.repo-card .title{font-size:1.05rem;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.repo-card .title a{color:var(--accent)}
+.repo-card .desc{color:var(--text2);font-size:0.88rem;margin-bottom:14px;line-height:1.5}
+.repo-card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.repo-card .tag{padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:500;background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
+.repo-card .tag.public{border-color:#1f6feb33;color:var(--accent)}
+.repo-card .tag.private{border-color:#d2992233;color:var(--orange)}
+.repo-card .meta{display:flex;gap:16px;font-size:0.8rem;color:var(--text2)}
+.repo-card .meta span{display:flex;align-items:center;gap:4px}
+.highlight-card{background:linear-gradient(135deg,var(--bg3) 0%,var(--card-bg) 100%);border-color:var(--accent);border-width:1.5px}
+.footer{text-align:center;padding:40px 20px;color:var(--text2);font-size:0.85rem}
+.footer a{margin:0 10px}
+@media(max-width:640px){.repo-grid{grid-template-columns:1fr}.stats{gap:20px}.header{padding:40px 20px 20px}.header h1{font-size:1.6rem}}
+</style>
 </head>
 <body>
-    <h1>欢迎访问我的博客！</h1>
-    <a href="#" id="profile-link" class="my-button">点击获取最新链接</a>
-    <a href="#" id="copy-ssh-link" class="my-button">点击复制 SSH 命令</a>
-    <a href="#" id="copy-vnc-link" class="my-button">点击复制 VNC 命令</a>
 
-    <script>
-        const profileButton = document.getElementById('profile-link');
-        const copyButton = document.getElementById('copy-ssh-link');
-        const copyVncButton = document.getElementById('copy-vnc-link');
-        let isProcessing = false;
-        let config = null;
+<header class="header">
+<div class="avatar">D</div>
+<h1>daife</h1>
+<div class="handle">@daife · Dypho</div>
+<div class="bio">AI Agent 开发 · 机器人 · 信号处理 · 嵌入式 · 实用工具 · 竞赛</div>
+<div><span class="badge">Go / Python / C++ / Java</span><span class="badge">ROS2 / PyQt5 / ONNX</span></div>
+</header>
 
-        // 点击事件处理
-        async function handleClick(event) {
-            event.preventDefault();
-            if (isProcessing) return;
-          
-            try {
-                isProcessing = true;
-                profileButton.textContent = '正在获取最新地址...';
-                profileButton.classList.add('loading');
+<div class="container">
 
-                // 获取最新 Commit SHA
-                const commitsRes = await fetch(
-                    'https://api.github.com/repos/daife/daife.github.io/commits?path=config.json&per_page=1',
-                    { cache: 'no-cache' }
-                );
-                if (!commitsRes.ok) throw new Error('请求提交记录失败');
-                const commits = await commitsRes.json();
-                const sha = commits[0].sha;
+<div class="stats">
+<div class="stat"><div class="stat-num">57</div><div class="stat-label">仓库</div></div>
+<div class="stat"><div class="stat-num">25</div><div class="stat-label">活跃项目</div></div>
+<div class="stat"><div class="stat-num">1.1k+</div><div class="stat-label">总 Commits</div></div>
+</div>
 
-                // 获取配置文件
-                const configRes = await fetch(
-                    `https://raw.githubusercontent.com/daife/daife.github.io/${sha}/config.json?t=${Date.now()}`,
-                    { cache: 'no-cache' }
-                );
-                if (!configRes.ok) throw new Error('请求配置文件失败');
-                config = await configRes.json();
+<section class="category">
+<h2><span class="emoji">🏆</span> 旗舰项目</h2>
+<div class="repo-grid">
+<div class="repo-card highlight-card">
+<div class="title"><a href="https://github.com/daife/Asayn">Asayn</a> <span class="tag public">public</span></div>
+<div class="desc">「agent skills are all you need」—— Go 语言终端 AI Agent。Bubble Tea TUI、OpenAI 兼容模型、Sub/Sub Agent 架构、Skill 包系统、MCP 工具集成、自动上下文压缩。核心主力项目。</div>
+<div class="tags"><span class="tag">Go</span><span class="tag">TUI</span><span class="tag">OpenAI</span><span class="tag">MCP</span><span class="tag">Agent</span></div>
+<div class="meta"><span>155 commits</span></div>
+</div>
+</div>
+</section>
 
-                // 成功获取后自动跳转
-                window.location.href = config.profile_url;
-            } catch (error) {
-                console.error('错误:', error);
-                profileButton.textContent = '获取失败，点击重试';
-                profileButton.href = '#';
-            } finally {
-                isProcessing = false;
-                profileButton.classList.remove('loading');
-            }
-        }
+<section class="category">
+<h2><span class="emoji">💕</span> 社交平台</h2>
+<div class="repo-grid">
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/line4love">line4love</a> <span class="tag private">private</span></div>
+<div class="desc">「在成都，遇见同频的你」—— 基于学校邮箱验证的在线匹配平台。FastAPI + SQLite + Resend 邮件验证。</div>
+<div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span></div>
+<div class="meta"><span>121 commits</span></div>
+</div>
+</div>
+</section>
 
-        // 绑定点击事件
-        profileButton.addEventListener('click', handleClick);
+<section class="category">
+<h2><span class="emoji">🤖</span> 机器人 · 无人机 · 嵌入式</h2>
+<div class="repo-grid">
 
-        // 复制 SSH 命令到剪切板
-        copyButton.addEventListener('click', async (event) => {
-            event.preventDefault();
-            if (!config) {
-                try {
-                    // 获取最新 Commit SHA
-                    const commitsRes = await fetch(
-                        'https://api.github.com/repos/daife/daife.github.io/commits?path=config.json&per_page=1',
-                        { cache: 'no-cache' }
-                    );
-                    if (!commitsRes.ok) throw new Error('请求提交记录失败');
-                    const commits = await commitsRes.json();
-                    const sha = commits[0].sha;
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/bot">bot</a> <span class="tag public">public</span></div>
+<div class="desc">「香澄派小车」—— ROS2 完整机器人项目。多自定义 Node、通信接口、PyQt5 UI 远程控制、systemd 自启动服务。</div>
+<div class="tags"><span class="tag">Python</span><span class="tag">ROS2</span><span class="tag">PyQt5</span></div>
+<div class="meta"><span>146 commits</span></div>
+</div>
 
-                    // 获取配置文件
-                    const configRes = await fetch(
-                        `https://raw.githubusercontent.com/daife/daife.github.io/${sha}/config.json?t=${Date.now()}`,
-                        { cache: 'no-cache' }
-                    );
-                    if (!configRes.ok) throw new Error('请求配置文件失败');
-                    config = await configRes.json();
-                } catch (error) {
-                    console.error('错误:', error);
-                    return;
-                }
-            }
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/swarm-ros">swarm-ros</a> <span class="tag private">private</span></div>
+<div class="desc">多无人机追捕-逃避博弈 RL 仿真系统。Gazebo Harmonic 真仿真 + MADDPG/DDPG 策略，完整训练协调框架。</div>
+<div class="tags"><span class="tag">Python</span><span class="tag">ROS2</span><span class="tag">MADDPG</span><span class="tag">Gazebo</span></div>
+<div class="meta"><span>41 commits</span></div>
+</div>
 
-            if (config && config.ssh_command) {
-                try {
-                    await navigator.clipboard.writeText(config.ssh_command);
-                    alert('SSH 命令已复制到剪切板');
-                } catch (error) {
-                    console.error('复制到剪切板失败:', error);
-                }
-            }
-        });
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/Drone-Swarm">Drone-Swarm</a> <span class="tag private">private</span></div>
+<div class="desc">无人机集群研究项目。GRU + Kalman Filter 算法研究、Matlab/Python 双实现、论文搜集整理。</div>
+<div class="tags"><span class="tag">GRU</span><span class="tag">Kalman</span><span class="tag">Matlab</span><span class="tag">Python</span></div>
+<div class="meta"><span>11 commits</span></div>
+</div>
 
-        // 复制 VNC 命令到剪切板
-        copyVncButton.addEventListener('click', async (event) => {
-            event.preventDefault();
-            if (!config) {
-                try {
-                    // 获取最新 Commit SHA
-                    const commitsRes = await fetch(
-                        'https://api.github.com/repos/daife/daife.github.io/commits?path=config.json&per_page=1',
-                        { cache: 'no-cache' }
-                    );
-                    if (!commitsRes.ok) throw new Error('请求提交记录失败');
-                    const commits = await commitsRes.json();
-                    const sha = commits[0].sha;
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/ros-stm32">ros-stm32</a> <span class="tag private">private</span></div>
+<div class="desc">STM32H743IIT6 + ROS2 底层固件工程。MDK-ARM 项目，CubeMX 配置 MPU/Cache/外设。</div>
+<div class="tags"><span class="tag">C</span><span class="tag">STM32</span><span class="tag">ROS2</span><span class="tag">FreeRTOS</span></div>
+<div class="meta"><span>6 commits</span></div>
+</div>
 
-                    // 获取配置文件
-                    const configRes = await fetch(
-                        `https://raw.githubusercontent.com/daife/daife.github.io/${sha}/config.json?t=${Date.now()}`,
-                        { cache: 'no-cache' }
-                    );
-                    if (!configRes.ok) throw new Error('请求配置文件失败');
-                    config = await configRes.json();
-                } catch (error) {
-                    console.error('错误:', error);
-                    return;
-                }
-            }
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/Laser-Tracking-Control-System">Laser-Tracking-Control-System</a> <span class="tag private">private</span></div>
+<div class="desc">英才校队招新 — 激光跟踪系统。二维云台机械设计 + OpenCV 视觉标定 + 贝塞尔插值 + 增量式 PID 控制器。</div>
+<div class="tags"><span class="tag">OpenCV</span><span class="tag">PID</span><span class="tag">香橙派</span></div>
+<div class="meta"><span>13 commits</span></div>
+</div>
 
-            if (config && config.vnc_command) {
-                try {
-                    await navigator.clipboard.writeText(config.vnc_command);
-                    alert('VNC 命令已复制到剪切板');
-                } catch (error) {
-                    console.error('复制到剪切板失败:', error);
-                }
-            }
-        });
-    </script>
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/Syber_wand">Syber_wand</a> <span class="tag public">public</span></div>
+<div class="desc">「赛博魔杖」— 英才杯比赛作品。ASRPRO 语音模块 + JX-03 HID 键盘鼠标 + 3D 打印外壳，语音控制电脑。</div>
+<div class="tags"><span class="tag">ASRPRO</span><span class="tag">HID</span><span class="tag">3D打印</span><span class="tag">嵌入式</span></div>
+<div class="meta"><span>38 commits</span></div>
+</div>
+
+</div>
+</section>
+
+<section class="category">
+<h2><span class="emoji">🛠️</span> 实用工具</h2>
+<div class="repo-grid">
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/Writing-machine">Writing-machine</a> <span class="tag private">private</span></div>
+<div class="desc">写字机 GUI 工具。导入作业纸照片 → 标定角点 → 生成字迹轨迹 → 导出 GRBL/G-code → 串口发送写字机。</div>
+<div class="tags"><span class="tag">Python</span><span class="tag">GRBL</span><span class="tag">G-code</span></div>
+<div class="meta"><span>26 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/ShotOcr">ShotOcr</a> <span class="tag public">public</span></div>
+<div class="desc">截图 OCR + 语音识别桌面工具。全局快捷键截图识别文字，语音转文字，系统托盘，开机自启。</div>
+<div class="tags"><span class="tag">Python</span><span class="tag">OCR</span><span class="tag">语音识别</span></div>
+<div class="meta"><span>12 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/ShotOcr_C">ShotOcr_C</a> <span class="tag public">public</span></div>
+<div class="desc">ShotOcr C++ Windows 原生版。CMake 构建，GDI+ 截图 + 全局快捷键 + 语音识别。</div>
+<div class="tags"><span class="tag">C++</span><span class="tag">CMake</span><span class="tag">Win32</span></div>
+<div class="meta"><span>11 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/wordsHelper">wordsHelper</a> <span class="tag private">private</span></div>
+<div class="desc">单词记忆助手 Flask Web 应用。用户管理 + 间隔重复记忆算法 + 词库管理 + 外部 API 集成。</div>
+<div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">SRS</span></div>
+<div class="meta"><span>21 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/webapp">webapp</a> <span class="tag private">private</span></div>
+<div class="desc">3D 虚拟角色 Web 应用。集成 MMD/VRM 模型，基于 Web 的 3D 交互体验。</div>
+<div class="tags"><span class="tag">MMD</span><span class="tag">VRM</span><span class="tag">3D</span></div>
+<div class="meta"><span>13 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/LightFlows">LightFlows</a> <span class="tag public">public</span></div>
+<div class="desc">词典笔输入法 Android 应用。OpenCV 特征匹配拼接 + 有道 OCR + 讯飞语音接口。</div>
+<div class="tags"><span class="tag">Android</span><span class="tag">Kotlin</span><span class="tag">OpenCV</span></div>
+<div class="meta"><span>9 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/datasets2">datasets2</a> <span class="tag public">public</span></div>
+<div class="desc">LabelMe JSON → YOLO Segmentation TXT 批量转换工具。自动划分训练/验证集。</div>
+<div class="tags"><span class="tag">Python</span><span class="tag">YOLO</span><span class="tag">LabelMe</span></div>
+<div class="meta"><span>11 commits</span></div>
+</div>
+
+</div>
+</section>
+
+<section class="category">
+<h2><span class="emoji">📡</span> 通信 · 信号处理</h2>
+<div class="repo-grid">
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/OFDM_URSP_NPU">OFDM_URSP_NPU</a> <span class="tag public">public</span></div>
+<div class="desc">OFDM 通信系统 + 昇腾 NPU 硬件加速。DFT/FFT/IDFT、LDPC 编解码、YOLO 集成、UHD/USRP 驱动。</div>
+<div class="tags"><span class="tag">OFDM</span><span class="tag">NPU</span><span class="tag">LDPC</span><span class="tag">ONNX</span></div>
+<div class="meta"><span>63 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/signex">signex</a> <span class="tag private">private</span></div>
+<div class="desc">随机信号分析 AI Agent。Anthropic tool-use 格式封装信号采集/FFT/PSD/平稳性检测为 Agent skill tools。</div>
+<div class="tags"><span class="tag">信号处理</span><span class="tag">AI Agent</span><span class="tag">FFT</span></div>
+<div class="meta"><span>23 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/microphone_visualizer">microphone_visualizer</a> <span class="tag public">public</span></div>
+<div class="desc">「挑西瓜」— Android 拍西瓜频谱分析仪。FFT 实时分析拍打频率（133-189Hz），判断成熟度。</div>
+<div class="tags"><span class="tag">Java</span><span class="tag">Android</span><span class="tag">FFT</span></div>
+<div class="meta"><span>18 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/EMF-EMW">EMF-EMW</a> <span class="tag private">private</span></div>
+<div class="desc">电磁场与电磁波课程资料归档。课件、教材、课程设计、Excalidraw 笔记。</div>
+<div class="tags"><span class="tag">电磁场</span></div>
+<div class="meta"><span>13 commits</span></div>
+</div>
+
+</div>
+</section>
+
+<section class="category">
+<h2><span class="emoji">🧠</span> AI · 计算机视觉</h2>
+<div class="repo-grid">
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/yolo_test">yolo_test</a> <span class="tag private">private</span></div>
+<div class="desc">昇腾 NPU 实时 YOLO 摄像头检测。aclTest/dvppTest/摄像头标定/多 pipeline 测试。</div>
+<div class="tags"><span class="tag">YOLO</span><span class="tag">NPU</span><span class="tag">昇腾</span></div>
+<div class="meta"><span>24 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/Dian_C">Dian_C</a> <span class="tag public">public</span></div>
+<div class="desc">摄像头数字识别系统。PyQt5 + OpenCV + ONNX Runtime + I2C，分水岭算法分割实时识别。</div>
+<div class="tags"><span class="tag">PyQt5</span><span class="tag">OpenCV</span><span class="tag">ONNX</span></div>
+<div class="meta"><span>30 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/AI-Foundations-Course">AI-Foundations-Course</a> <span class="tag public">public</span></div>
+<div class="desc">AI 基础课程 5 个练习项目：numpy/sklearn → matplotlib → scikit-image → TensorBoard → YOLO。</div>
+<div class="tags"><span class="tag">Python</span><span class="tag">sklearn</span><span class="tag">YOLO</span><span class="tag">PyTorch</span></div>
+<div class="meta"><span>21 commits</span></div>
+</div>
+
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/datasets">datasets</a> <span class="tag public">public</span></div>
+<div class="desc">YOLO 目标检测数据集。4 类目标 (BLUE/RED/YELLOW/GREEN)，含图片/标签/增强配置。</div>
+<div class="tags"><span class="tag">YOLO</span><span class="tag">数据集</span></div>
+<div class="meta"><span>8 commits</span></div>
+</div>
+
+</div>
+</section>
+
+<section class="category">
+<h2><span class="emoji">📚</span> 学术 · 其他</h2>
+<div class="repo-grid">
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/Brain-Science">Brain-Science</a> <span class="tag private">private</span></div>
+<div class="desc">脑科学讲座笔记。王昱婧博士讲座资料整理，Excalidraw 绘图 + Obsidian Markdown 笔记。</div>
+<div class="tags"><span class="tag">脑科学</span><span class="tag">Obsidian</span></div>
+<div class="meta"><span>7 commits</span></div>
+</div>
+<div class="repo-card">
+<div class="title"><a href="https://github.com/daife/daife.github.io">daife.github.io</a> <span class="tag public">public</span></div>
+<div class="desc">就是这个站 👈 个人 GitHub Pages 项目展示主页。</div>
+<div class="meta"><span>146+ commits</span></div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<p><a href="https://github.com/daife">GitHub</a></p>
+<p style="margin-top:12px;font-size:0.75rem;color:#484f58">daife · 2025</p>
+</footer>
+
+</div>
 </body>
 </html>
