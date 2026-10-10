@@ -2,313 +2,202 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>daife · project portfolio</title>
-<style>
-:root{--bg:#0d1117;--bg2:#161b22;--bg3:#1c2333;--border:#30363d;--text:#e6edf3;--text2:#8b949e;--accent:#58a6ff;--green:#3fb950;--orange:#d29922;--purple:#bc8cff;--pink:#f778ba;--red:#f85149;--card-bg:#161b22}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.container{max-width:1100px;margin:0 auto;padding:0 20px}
-.header{text-align:center;padding:60px 20px 40px;background:linear-gradient(180deg,var(--bg3) 0%,var(--bg) 100%)}
-.avatar{width:96px;height:96px;border-radius:50%;border:3px solid var(--accent);margin-bottom:16px;background:var(--bg3);display:inline-flex;align-items:center;justify-content:center;font-size:40px;color:var(--accent);font-weight:700}
-.header h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}
-.header .handle{color:var(--text2);font-size:1rem;margin-bottom:12px}
-.header .bio{color:var(--text2);max-width:500px;margin:0 auto 20px;font-size:0.95rem}
-.header .badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:0.8rem;margin:0 4px 8px;border:1px solid var(--border);color:var(--text2)}
-.stats{display:flex;justify-content:center;gap:40px;padding:30px 0;flex-wrap:wrap}
-.stat{text-align:center}
-.stat-num{font-size:1.8rem;font-weight:700;color:var(--accent)}
-.stat-label{font-size:0.8rem;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px}
-.category{margin:40px 0}
-.category h2{font-size:1.4rem;font-weight:600;margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
-.category h2 .emoji{font-size:1.3rem}
-.repo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
-.repo-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.15s}
-.repo-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.repo-card .title{font-size:1.05rem;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.repo-card .title a{color:var(--accent)}
-.repo-card .desc{color:var(--text2);font-size:0.88rem;margin-bottom:14px;line-height:1.5}
-.repo-card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
-.repo-card .tag{padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:500;background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
-.repo-card .tag.public{border-color:#1f6feb33;color:var(--accent)}
-.repo-card .tag.private{border-color:#d2992233;color:var(--orange)}
-.repo-card .meta{display:flex;gap:16px;font-size:0.8rem;color:var(--text2)}
-.repo-card .meta span{display:flex;align-items:center;gap:4px}
-.highlight-card{background:linear-gradient(135deg,var(--bg3) 0%,var(--card-bg) 100%);border-color:var(--accent);border-width:1.5px}
-.footer{text-align:center;padding:40px 20px;color:var(--text2);font-size:0.85rem}
-.footer a{margin:0 10px}
-@media(max-width:640px){.repo-grid{grid-template-columns:1fr}.stats{gap:20px}.header{padding:40px 20px 20px}.header h1{font-size:1.6rem}}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="daife / Dypho 的个人项目作品集：AI Agent、多端应用、Minecraft 模组、ROS2 机器人、NPU 算子与开源工程。探索具体实现、技术亮点与公开源码。">
+<meta property="og:title" content="daife · 从想法到可运行的系统">
+<meta property="og:description" content="AI Agent、游戏系统、机器人与底层工程。项目概要、实现亮点和公开源码。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://daife.github.io/">
+<meta name="theme-color" content="#0d1117">
+<link rel="canonical" href="https://daife.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+<title>daife · 个人项目与开源实践</title>
 </head>
 <body>
-
-<header class="header">
-<div class="avatar">D</div>
-<h1>daife</h1>
-<div class="handle">@daife · Dypho</div>
-<div class="bio">AI Agent 开发 · 机器人 · 信号处理 · 嵌入式 · 实用工具 · 竞赛</div>
-<div><span class="badge">Go / Python / C++ / Java</span><span class="badge">ROS2 / PyQt5 / ONNX</span></div>
-</header>
-
-<div class="container">
-
-<div class="stats">
-<div class="stat"><div class="stat-num">57</div><div class="stat-label">仓库</div></div>
-<div class="stat"><div class="stat-num">25</div><div class="stat-label">活跃项目</div></div>
-<div class="stat"><div class="stat-num">1.1k+</div><div class="stat-label">总 Commits</div></div>
-</div>
-
-<section class="category">
-<h2><span class="emoji">🏆</span> 旗舰项目</h2>
-<div class="repo-grid">
-<div class="repo-card highlight-card">
-<div class="title"><a href="https://github.com/daife/Asayn">Asayn</a> <span class="tag public">public</span></div>
-<div class="desc">「agent skills are all you need」—— Go 语言终端 AI Agent。Bubble Tea TUI、OpenAI 兼容模型、Sub/Sub Agent 架构、Skill 包系统、MCP 工具集成、自动上下文压缩。核心主力项目。</div>
-<div class="tags"><span class="tag">Go</span><span class="tag">TUI</span><span class="tag">OpenAI</span><span class="tag">MCP</span><span class="tag">Agent</span></div>
-<div class="meta"><span>155 commits</span></div>
-</div>
-</div>
+<a class="skip-link" href="#main">跳到主要内容</a>
+<header class="site-header"><div class="container header-row"><a class="brand" href="#top" aria-label="daife 首页"><span class="brand-mark" aria-hidden="true">d.</span> daife <span class="brand-sub">/ Dypho</span></a><nav aria-label="主导航"><a href="#projects">项目</a><a href="#journey">轨迹</a><a href="#about">关于</a><a href="https://github.com/daife">GitHub ↗</a></nav></div></header>
+<main id="main">
+<section class="hero container" id="top">
+<div class="hero-copy"><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> PERSONAL PROJECTS & OPEN-SOURCE WORK</p><h1>从想法，<br>到可运行的<span>系统。</span></h1><p class="hero-intro">你好，我是 <strong>daife / Dypho</strong>。我探索 AI Agent 与交互应用，也编写游戏模组、调试机器人，研究计算图与底层运行时。</p><p class="hero-sub">这里记录我做过的项目，以及让它们运转的具体实现。</p><div class="hero-actions"><a class="button primary" href="#projects">浏览项目 <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://github.com/daife">查看 GitHub <span aria-hidden="true">↗</span></a></div></div>
+<div class="system-map" aria-label="技术方向：交互体验连接 Agent 与状态管理，再连接工具、游戏和硬件"><div class="map-head"><span class="map-dots" aria-hidden="true">● ● ●</span><span>what I build</span></div><div class="map-body"><p class="map-caption">从交互到执行</p><div class="map-layer"><span class="layer-index">01</span><div><strong>交互与体验</strong><small>Terminal · Desktop · Android · Web</small></div></div><div class="map-connector" aria-hidden="true">↓</div><div class="map-layer map-focus"><span class="layer-index">02</span><div><strong>Agent 与状态</strong><small>Tools · Memory · Sync · Lifecycle</small></div></div><div class="map-connector" aria-hidden="true">↓</div><div class="map-targets"><span>工具与运行时</span><span>游戏世界</span><span>机器人与 NPU</span></div><p class="map-foot">跨越不同技术栈，关注状态、接口与执行边界。</p></div></div>
 </section>
-
-
-<section class="category">
-<h2><span class="emoji">⌨️</span> 键盘固件</h2>
-<div class="repo-grid">
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/zmk-cygnus-4x6">zmk-cygnus-4x6</a> <span class="tag public">public</span></div>
-<div class="desc">Cygnus 4x6 分体键盘 ZMK 固件配置。自定义键位映射、ZMK v0.3 适配。</div>
-<div class="tags"><span class="tag">ZMK</span><span class="tag">键盘</span><span class="tag">嵌入式</span></div>
-<div class="meta"><span>54 commits</span></div>
-</div>
-</div>
+<div class="overview container"><div><strong>41</strong><span>项目组</span></div><div><strong>09</strong><span>技术方向</span></div><div><strong>2024—2026</strong><span>项目与学习记录</span></div><p>关联仓库按项目组展示<br>内容更新于 2026-10-11</p></div>
+<section class="container showcase" id="projects" aria-label="项目作品集">
+<div class="showcase-intro"><p class="eyebrow">PROJECT INDEX</p><h2>做过什么，也看怎么做。</h2><p>先看精选案例，再沿技术方向探索。展开卡片，可查看实现亮点、项目说明与源码证据。</p></div>
+<div class="explorer" id="explorer" hidden><div class="search-row"><label class="search-label" for="project-search">搜索项目或技术</label><input id="project-search" type="search" placeholder="试试 Rust、ROS2、同步、OCR…" autocomplete="off"><button type="button" class="reset" id="reset-filters">重置</button></div><div class="filters" role="group" aria-label="按技术方向筛选"><button type="button" class="filter active" data-filter="all" aria-pressed="true">全部 <span>41</span></button><button type="button" class="filter" data-filter="agent" aria-pressed="false">AI 应用与 Agent <span>5</span></button><button type="button" class="filter" data-filter="game" aria-pressed="false">游戏模组与自动化 <span>2</span></button><button type="button" class="filter" data-filter="robot" aria-pressed="false">机器人与嵌入式 <span>9</span></button><button type="button" class="filter" data-filter="compute" aria-pressed="false">NPU、通信与状态估计 <span>4</span></button><button type="button" class="filter" data-filter="vision" aria-pressed="false">视觉、OCR 与语言工具 <span>9</span></button><button type="button" class="filter" data-filter="tool" aria-pressed="false">独立工具与运行时 <span>3</span></button><button type="button" class="filter" data-filter="web" aria-pressed="false">Web 产品与协作 <span>1</span></button><button type="button" class="filter" data-filter="opensource" aria-pressed="false">开源二次开发 <span>5</span></button><button type="button" class="filter" data-filter="learning" aria-pressed="false">课程实践与科研复现 <span>3</span></button></div><p class="result-count" id="result-count" role="status" aria-live="polite">显示全部 41 个项目组</p></div>
+<div id="project-sections"><section class="project-section" data-section><div class="section-heading"><div><span class="eyebrow">SELECTED WORK</span><h2>精选项目</h2><p>六个切面，认识我关注的问题与实现方式。</p></div><span class="section-count">06</span></div><div class="featured-grid"><article class="project-card featured-card" id="asayn" data-project data-category="agent" data-search="asayn ai 应用与 agent 把文件工具、skills、mcp 与异步子代理组织为共享本地引擎的终端和桌面开发助手。 项目实践 go react tauri mcp 工作区会话、供应商配置与上下文压缩共用 go 引擎。 异步子代理维护任务状态、恢复执行和结果回收。 处理流式输出、限流重试与工具调用顺序。 cli 与桌面渠道在仓库中提供；跨平台使用效果以实际环境为准。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#asayn">Asayn</a></h3>
+<p class="description">把文件工具、Skills、MCP 与异步子代理组织为共享本地引擎的终端和桌面开发助手。</p><ul class="tags" aria-label="技术栈"><li>Go</li><li>React</li><li>Tauri</li><li>MCP</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>工作区会话、供应商配置与上下文压缩共用 Go 引擎。</li><li>异步子代理维护任务状态、恢复执行和结果回收。</li><li>处理流式输出、限流重试与工具调用顺序。</li></ul><p class="note">CLI 与桌面渠道在仓库中提供；跨平台使用效果以实际环境为准。</p><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/Asayn/blob/d994a65f211e390d29a9868f940b6797d72a8f52/internal/llm/client.go">internal/llm/client.go <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Asayn/blob/d994a65f211e390d29a9868f940b6797d72a8f52/internal/tools/sub_agent.go">internal/tools/sub_agent.go <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Asayn/blob/d994a65f211e390d29a9868f940b6797d72a8f52/internal/session/session.go">internal/session/session.go <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/Asayn">Asayn <span aria-hidden="true">↗</span></a></div></article><article class="project-card featured-card" id="echoplayer" data-project data-category="game" data-search="echoplayer 游戏模组与自动化 minecraft 持久化虚拟玩家：创建分身、轮盘附身，保留独立身份、背包和世界状态。 项目实践 java forge mixin 角色切换时迁移骑乘、睡眠、钓鱼和拴绳等实体关系。 控制租约协调真人附身与自动化，支持抢占和暂停。 维护死亡重生、皮肤同步及第三方模组兼容层。 借鉴 advanced fake player（mit）思路。核心源码公开；私有 automation 扩展通过核心接口组织任务，作为同一项目组展示。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility private">部分公开</span></div>
+<h3><a class="permalink" href="#echoplayer">EchoPlayer</a></h3>
+<p class="description">Minecraft 持久化虚拟玩家：创建分身、轮盘附身，保留独立身份、背包和世界状态。</p><ul class="tags" aria-label="技术栈"><li>Java</li><li>Forge</li><li>Mixin</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>角色切换时迁移骑乘、睡眠、钓鱼和拴绳等实体关系。</li><li>控制租约协调真人附身与自动化，支持抢占和暂停。</li><li>维护死亡重生、皮肤同步及第三方模组兼容层。</li></ul><p class="note">借鉴 Advanced Fake Player（MIT）思路。核心源码公开；私有 Automation 扩展通过核心接口组织任务，作为同一项目组展示。</p><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/EchoPlayer/blob/bd49d9029d4cbbc40f195e920f7f7944687441a4/src/main/java/com/echoplayer/manager/EchoPlayerManager.java">src/main/java/com/echoplayer/manager/EchoPlayerManager.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/EchoPlayer/blob/bd49d9029d4cbbc40f195e920f7f7944687441a4/src/main/java/com/echoplayer/manager/StateSynchronizer.java">src/main/java/com/echoplayer/manager/StateSynchronizer.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/EchoPlayer/blob/bd49d9029d4cbbc40f195e920f7f7944687441a4/src/main/java/com/echoplayer/api/control/AutomationControlLease.java">src/main/java/com/echoplayer/api/control/AutomationControlLease.java <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/EchoPlayer">EchoPlayer <span aria-hidden="true">↗</span></a></div></article><article class="project-card featured-card" id="lingua-lore" data-project data-category="agent" data-search="lingua lore ai 应用与 agent 以互动故事连接外语阅读、划词翻译和世界记忆，包含桌面叙事核心、android 试用端与中转服务。 项目实践 typescript rust tauri sqlite 生成结果经过结构化校验与修复，再提交权威状态。 单个 sqlite 事务写入消息、人物、选项与记忆，避免半轮数据。 starter 增加账号、邀请与额度接口，dphub 提供中转和账本。 两客户端共享早期历史；移动端改动与发布标签分别核查，学习效果尚无对照数据。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#lingua-lore">Lingua Lore</a></h3>
+<p class="description">以互动故事连接外语阅读、划词翻译和世界记忆，包含桌面叙事核心、Android 试用端与中转服务。</p><ul class="tags" aria-label="技术栈"><li>TypeScript</li><li>Rust</li><li>Tauri</li><li>SQLite</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>生成结果经过结构化校验与修复，再提交权威状态。</li><li>单个 SQLite 事务写入消息、人物、选项与记忆，避免半轮数据。</li><li>Starter 增加账号、邀请与额度接口，dphub 提供中转和账本。</li></ul><p class="note">两客户端共享早期历史；移动端改动与发布标签分别核查，学习效果尚无对照数据。</p><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/lingua-lore/blob/dcc33647250b3d7cc2c65271fb3c2b485bf60bc5/apps/desktop/src-tauri/src/story_runtime/turn_orchestrator.rs">apps/desktop/src-tauri/src/story_runtime/turn_orchestrator.rs <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/lingua-lore/blob/dcc33647250b3d7cc2c65271fb3c2b485bf60bc5/apps/desktop/src-tauri/src/story_runtime/output_validator.rs">apps/desktop/src-tauri/src/story_runtime/output_validator.rs <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/lingua-lore/blob/dcc33647250b3d7cc2c65271fb3c2b485bf60bc5/apps/desktop/src-tauri/src/turn_commit/committer.rs">apps/desktop/src-tauri/src/turn_commit/committer.rs <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/lingua-lore">lingua-lore <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/lingua-lore-starter">lingua-lore-starter <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/dphub">dphub <span aria-hidden="true">↗</span></a></div></article><article class="project-card featured-card" id="bot" data-project data-category="robot" data-search="ros2 机器人 · bot 机器人与嵌入式 面向香橙派机器人，将底盘、激光雷达、imu、视觉定位、机械臂与任务调度组织为多节点系统。 项目实践 python ros2 pyqt5 以 ros2 节点拆分感知、控制和任务流程。 提供 pyqt 操作界面、通信接口和启动配置。 配套数据集与平台笔记记录视觉及部署探索。 源码与启动配置可查；实物任务成功率和硬件分工未用推测数字替代。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#bot">ROS2 机器人 · bot</a></h3>
+<p class="description">面向香橙派机器人，将底盘、激光雷达、IMU、视觉定位、机械臂与任务调度组织为多节点系统。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>ROS2</li><li>PyQt5</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>以 ROS2 节点拆分感知、控制和任务流程。</li><li>提供 PyQt 操作界面、通信接口和启动配置。</li><li>配套数据集与平台笔记记录视觉及部署探索。</li></ul><p class="note">源码与启动配置可查；实物任务成功率和硬件分工未用推测数字替代。</p><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/bot/blob/8fb9f276fab8f4f80f7cf3a7ee13fb346bdd9c83/Nodes/control_center/control_center/control_center_node.py">Nodes/control_center/control_center/control_center_node.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/bot/blob/8fb9f276fab8f4f80f7cf3a7ee13fb346bdd9c83/Nodes/paper_localizer/paper_localizer/paper_center_kalman_node.py">Nodes/paper_localizer/paper_localizer/paper_center_kalman_node.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/bot/blob/8fb9f276fab8f4f80f7cf3a7ee13fb346bdd9c83/Nodes/ChushouTeyou/task_manager/task_manager/task_manager_node.py">Nodes/ChushouTeyou/task_manager/task_manager/task_manager_node.py <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/bot">bot <span aria-hidden="true">↗</span></a></div></article><article class="project-card featured-card" id="sslflow-guard" data-project data-category="tool" data-search="sslflow guard 独立工具与运行时 针对 jdk http tls 读取的零进展循环，提供可预检、可重转换的 java agent 补丁。 项目实践 java asm instrumentation 同时检查握手状态、消费/产出字节和剩余输入，限制补丁触发范围。 预检目标类、字段和调用点，不兼容时显式失败。 重定位 asm 依赖，减少模块与类加载冲突。 依赖 jdk 内部结构，使用需匹配版本；未声称通用修复或性能提升比例。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#sslflow-guard">SSLFlow Guard</a></h3>
+<p class="description">针对 JDK HTTP TLS 读取的零进展循环，提供可预检、可重转换的 Java Agent 补丁。</p><ul class="tags" aria-label="技术栈"><li>Java</li><li>ASM</li><li>Instrumentation</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>同时检查握手状态、消费/产出字节和剩余输入，限制补丁触发范围。</li><li>预检目标类、字段和调用点，不兼容时显式失败。</li><li>重定位 ASM 依赖，减少模块与类加载冲突。</li></ul><p class="note">依赖 JDK 内部结构，使用需匹配版本；未声称通用修复或性能提升比例。</p><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/sslflow-guard/blob/4736b387b0a1ed8db88866b82c067f9379a69172/src/main/java/dev/sslflowguard/SSLFlowGuardAgent.java">src/main/java/dev/sslflowguard/SSLFlowGuardAgent.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/sslflow-guard/blob/4736b387b0a1ed8db88866b82c067f9379a69172/src/main/java/dev/sslflowguard/SSLFlowGuardTransformer.java">src/main/java/dev/sslflowguard/SSLFlowGuardTransformer.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/sslflow-guard/blob/4736b387b0a1ed8db88866b82c067f9379a69172/src/main/java/dev/sslflowguard/AgentOptions.java">src/main/java/dev/sslflowguard/AgentOptions.java <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/sslflow-guard">sslflow-guard <span aria-hidden="true">↗</span></a></div></article><article class="project-card featured-card" id="qingjian" data-project data-category="opensource" data-search="青简 · 输入交互与云补全扩展 开源二次开发 在开源青简输入法上扩展短按/长按状态、独立快捷键开关、英文云补全和情境提示。 开源二次开发 rust windows tsf http 短按在释放时触发，长按达阈值即触发，并处理禁用后的按键释放。 区分中英文补全，增加场景参考和语言独立开关。 精简云请求字段并记录 token 用量，修正 windows 设置布局。 输入法核心、词典与平台框架来自 qingjian-team/qingjian；这里展示个人功能增量。">
+<div class="card-top"><span class="project-kind">开源二次开发</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#qingjian">青简 · 输入交互与云补全扩展</a></h3>
+<p class="description">在开源青简输入法上扩展短按/长按状态、独立快捷键开关、英文云补全和情境提示。</p><ul class="tags" aria-label="技术栈"><li>Rust</li><li>Windows TSF</li><li>HTTP</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>短按在释放时触发，长按达阈值即触发，并处理禁用后的按键释放。</li><li>区分中英文补全，增加场景参考和语言独立开关。</li><li>精简云请求字段并记录 token 用量，修正 Windows 设置布局。</li></ul><p class="note">输入法核心、词典与平台框架来自 qingjian-team/qingjian；这里展示个人功能增量。</p><div class="upstream"><a href="https://github.com/qingjian-team/qingjian">上游 · qingjian-team/qingjian <span aria-hidden="true">↗</span></a></div><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/qingjian/blob/e1e1525915e8e59be0d9a19e0fb9cb18e90d1abf/apps/windows/server/src/dispatch/key/input.rs">apps/windows/server/src/dispatch/key/input.rs <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/qingjian/blob/e1e1525915e8e59be0d9a19e0fb9cb18e90d1abf/apps/windows/server/src/dispatch/key/shortcut.rs">apps/windows/server/src/dispatch/key/shortcut.rs <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/qingjian/blob/e1e1525915e8e59be0d9a19e0fb9cb18e90d1abf/apps/windows/server/tests/engine_loop/shortcuts.rs">apps/windows/server/tests/engine_loop/shortcuts.rs <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/qingjian">qingjian <span aria-hidden="true">↗</span></a></div></article></div></section><section class="project-section" data-section><div class="section-heading"><div><span class="eyebrow">01 / EXPLORE</span><h2>AI 应用与 Agent</h2><p>从工具调用、生成校验，到多端同步与记忆内核。</p></div><span class="section-count">03</span></div><div class="project-grid"><article class="project-card " id="echoo" data-project data-category="agent" data-search="echoo ai 应用与 agent 围绕 ai 人物会话构建多端运行时、账号与媒体管理，以及可恢复的客户端同步。 项目实践 typescript react mysql redis kotlin 以持久化序号与游标补齐断线变更，过旧游标触发快照重建。 android 原生后台连接与前台交接，保留同步状态。 持久化失败运行，并容错解析模型动作。 私有源码，仅展示项目概要；规划中的连接器不计入已实现功能。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#echoo">Echoo</a></h3>
+<p class="description">围绕 AI 人物会话构建多端运行时、账号与媒体管理，以及可恢复的客户端同步。</p><ul class="tags" aria-label="技术栈"><li>TypeScript</li><li>React</li><li>MySQL</li><li>Redis</li><li>Kotlin</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>以持久化序号与游标补齐断线变更，过旧游标触发快照重建。</li><li>Android 原生后台连接与前台交接，保留同步状态。</li><li>持久化失败运行，并容错解析模型动作。</li></ul><p class="note">私有源码，仅展示项目概要；规划中的连接器不计入已实现功能。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article><article class="project-card " id="situated-agent-kernel" data-project data-category="agent" data-search="situated agent kernel ai 应用与 agent 探索事件、上下文、计划、执行与状态记忆之间的可组合 agent 内核。 内核原型 typescript node.js plugins 插件依赖检查、启动失败回收与逆序停止。 派生记忆保留来源版本，校验权限范围和生命周期。 原型；默认适配器为进程内存储，真实模型、持久化及群聊接入尚需宿主实现。">
+<div class="card-top"><span class="project-kind">内核原型</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#situated-agent-kernel">Situated Agent Kernel</a></h3>
+<p class="description">探索事件、上下文、计划、执行与状态记忆之间的可组合 Agent 内核。</p><ul class="tags" aria-label="技术栈"><li>TypeScript</li><li>Node.js</li><li>Plugins</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>插件依赖检查、启动失败回收与逆序停止。</li><li>派生记忆保留来源版本，校验权限范围和生命周期。</li></ul><p class="note">原型；默认适配器为进程内存储，真实模型、持久化及群聊接入尚需宿主实现。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article><article class="project-card " id="signex" data-project data-category="agent" data-search="signex ai 应用与 agent 随机信号分析课程实践：模型选择真实工具完成 fft、psd 等分析，并展示调用过程。 课程实践 python streamlit scipy rag 按需加载 skills，统一参数校验与工具分发。 结合 pdf 检索与可观察的工具执行轨迹。 课程实践；工具参数校验与主机权限隔离是不同机制。">
+<div class="card-top"><span class="project-kind">课程实践</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#signex">Signex</a></h3>
+<p class="description">随机信号分析课程实践：模型选择真实工具完成 FFT、PSD 等分析，并展示调用过程。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>Streamlit</li><li>SciPy</li><li>RAG</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>按需加载 Skills，统一参数校验与工具分发。</li><li>结合 PDF 检索与可观察的工具执行轨迹。</li></ul><p class="note">课程实践；工具参数校验与主机权限隔离是不同机制。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article></div></section><section class="project-section" data-section><div class="section-heading"><div><span class="eyebrow">02 / EXPLORE</span><h2>游戏模组与自动化</h2><p>围绕虚拟玩家、控制权与游戏互动扩展系统能力。</p></div><span class="section-count">01</span></div><div class="project-grid"><article class="project-card " id="danmaku2mc" data-project data-category="game" data-search="danmaku2mc 游戏模组与自动化 将直播弹幕事件桥接到 minecraft，探索直播互动与游戏行为联动。 项目实践 java websocket forge 直播抓取与协议部分有上游来源，游戏侧桥接分开描述。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#danmaku2mc">Danmaku2MC</a></h3>
+<p class="description">将直播弹幕事件桥接到 Minecraft，探索直播互动与游戏行为联动。</p><ul class="tags" aria-label="技术栈"><li>Java</li><li>WebSocket</li><li>Forge</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">直播抓取与协议部分有上游来源，游戏侧桥接分开描述。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article></div></section><section class="project-section" data-section><div class="section-heading"><div><span class="eyebrow">03 / EXPLORE</span><h2>机器人与嵌入式</h2><p>把感知、通信、控制与操作界面连接到硬件。</p></div><span class="section-count">08</span></div><div class="project-grid"><article class="project-card " id="ros-stm32" data-project data-category="robot" data-search="stm32 小车与云台固件 机器人与嵌入式 在 mcu 端实现多轮 pid、云台俯仰、速度与参数串口接收、pwm 输出及里程计反馈。 项目实践 c stm32 uart dma pid 仓库名为 ros-stm32；当前材料体现 mcu 控制固件，未据此认定完整 ros 导航或系统联调。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#ros-stm32">STM32 小车与云台固件</a></h3>
+<p class="description">在 MCU 端实现多轮 PID、云台俯仰、速度与参数串口接收、PWM 输出及里程计反馈。</p><ul class="tags" aria-label="技术栈"><li>C</li><li>STM32</li><li>UART DMA</li><li>PID</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">仓库名为 ros-stm32；当前材料体现 MCU 控制固件，未据此认定完整 ROS 导航或系统联调。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article><article class="project-card " id="swarm-ros" data-project data-category="robot" data-search="追捕与逃逸仿真 · swarm-ros 机器人与嵌入式 组织追捕者与逃逸者的仿真训练、回合重置和策略执行，包含 cbc-tp actor/critic 与目标预测网络。 仿真研究 python ros2 gazebo 强化学习 仿真研究，未据此声称实机无人机集群部署。">
+<div class="card-top"><span class="project-kind">仿真研究</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#swarm-ros">追捕与逃逸仿真 · swarm-ros</a></h3>
+<p class="description">组织追捕者与逃逸者的仿真训练、回合重置和策略执行，包含 CBC-TP Actor/Critic 与目标预测网络。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>ROS2</li><li>Gazebo</li><li>强化学习</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">仿真研究，未据此声称实机无人机集群部署。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article><article class="project-card " id="dian-c" data-project data-category="robot" data-search="相机识别与硬件联调 · dian_c 机器人与嵌入式 相机预览、轮廓与数字识别，以及通过 i2c 读取 ina226 电流的联调程序。 项目实践 python opencv onnx pyqt5 ">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#dian-c">相机识别与硬件联调 · Dian_C</a></h3>
+<p class="description">相机预览、轮廓与数字识别，以及通过 I2C 读取 INA226 电流的联调程序。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>OpenCV</li><li>ONNX</li><li>PyQt5</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/Dian_C/blob/2459427cf341af2f43ac2bfa74ebef6aa5dc0b5c/main.py">main.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Dian_C/blob/2459427cf341af2f43ac2bfa74ebef6aa5dc0b5c/digit_re.py">digit_re.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Dian_C/blob/2459427cf341af2f43ac2bfa74ebef6aa5dc0b5c/digitsp.py">digitsp.py <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/Dian_C">Dian_C <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="syber-wand" data-project data-category="robot" data-search="赛博魔杖 · syber_wand 机器人与嵌入式 用姿态、语音与无线通信触发 hid 和家电控制，结合硬件与外壳设计。 项目实践 嵌入式 hid 语音 姿态 ">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#syber-wand">赛博魔杖 · Syber_wand</a></h3>
+<p class="description">用姿态、语音与无线通信触发 HID 和家电控制，结合硬件与外壳设计。</p><ul class="tags" aria-label="技术栈"><li>嵌入式</li><li>HID</li><li>语音</li><li>姿态</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/Syber_wand/blob/bc99a3e750ff4bc33f2f149c9eec7785d9418a45/README.md">README.md <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Syber_wand/blob/bc99a3e750ff4bc33f2f149c9eec7785d9418a45/Software/Wand/Core/Src/main.c">Software/Wand/Core/Src/main.c <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Syber_wand/blob/bc99a3e750ff4bc33f2f149c9eec7785d9418a45/Software/Cyberwand_app/app/src/main/AndroidManifest.xml">Software/Cyberwand_app/app/src/main/AndroidManifest.xml <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/Syber_wand">Syber_wand <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="moving-traker" data-project data-category="robot" data-search="双轴云台 · moving_traker 机器人与嵌入式 通过手持姿态遥控器或 android 蓝牙控制双轴舵机云台。 硬件探索 stm32 蓝牙 舵机 ">
+<div class="card-top"><span class="project-kind">硬件探索</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#moving-traker">双轴云台 · Moving_traker</a></h3>
+<p class="description">通过手持姿态遥控器或 Android 蓝牙控制双轴舵机云台。</p><ul class="tags" aria-label="技术栈"><li>STM32</li><li>蓝牙</li><li>舵机</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/Moving_traker/blob/d67b11bdeca226541fe83ebc683b694e5f245499/Software/Master2/Core/Src/main.c">Software/Master2/Core/Src/main.c <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Moving_traker/blob/d67b11bdeca226541fe83ebc683b694e5f245499/Software/Slave/Core/Src/main.c">Software/Slave/Core/Src/main.c <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Moving_traker/blob/d67b11bdeca226541fe83ebc683b694e5f245499/Software/CRMaster/app/src/main/java/com/example/crmaster/MainActivity.java">Software/CRMaster/app/src/main/java/com/example/crmaster/MainActivity.java <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/Moving_traker">Moving_traker <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="pid-stick" data-project data-category="robot" data-search="风力姿态平衡 · pid_stick 机器人与嵌入式 通过惯性测量与风力驱动探索筷子姿态平衡。 控制原型 stm32 pid imu ">
+<div class="card-top"><span class="project-kind">控制原型</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#pid-stick">风力姿态平衡 · PID_Stick</a></h3>
+<p class="description">通过惯性测量与风力驱动探索筷子姿态平衡。</p><ul class="tags" aria-label="技术栈"><li>STM32</li><li>PID</li><li>IMU</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/PID_Stick/blob/0619d8bff58c66fcb3204fff63f251a33f1d5b08/Software/PIDStick2/Core/Src/main.c">Software/PIDStick2/Core/Src/main.c <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/PID_Stick/blob/0619d8bff58c66fcb3204fff63f251a33f1d5b08/Software/PIDStick2/Core/Src/motion/motion_interface.c">Software/PIDStick2/Core/Src/motion/motion_interface.c <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/PID_Stick/blob/0619d8bff58c66fcb3204fff63f251a33f1d5b08/Software/PIDStick2/Core/Src/drv8833.c">Software/PIDStick2/Core/Src/drv8833.c <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/PID_Stick">PID_Stick <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="ups" data-project data-category="robot" data-search="ups 电源控制 机器人与嵌入式 使用 mcu 控制电源芯片，并向上位机反馈电池电压。 硬件探索 mcu 电源 串口 ">
+<div class="card-top"><span class="project-kind">硬件探索</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#ups">UPS 电源控制</a></h3>
+<p class="description">使用 MCU 控制电源芯片，并向上位机反馈电池电压。</p><ul class="tags" aria-label="技术栈"><li>MCU</li><li>电源</li><li>串口</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/UPS/blob/67672528f1404b2361213e8ee32f058bad04f4c0/UPS/Core/Src/main.c">UPS/Core/Src/main.c <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/UPS/blob/67672528f1404b2361213e8ee32f058bad04f4c0/UPS/Core/Src/SC8815.c">SC8815.c <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/UPS/blob/67672528f1404b2361213e8ee32f058bad04f4c0/数控UPS.epro">数控UPS.epro <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/UPS">UPS <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="writing-machine" data-project data-category="robot" data-search="写字机工作台 机器人与嵌入式 从参考纸张与字迹图层到骨架轨迹、像素毫米映射、g-code 导出和双向串口诊断。 项目实践 python tkinter opencv g-code 骨架轨迹与真实笔顺分别处理；执行效果取决于设备与参数。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#writing-machine">写字机工作台</a></h3>
+<p class="description">从参考纸张与字迹图层到骨架轨迹、像素毫米映射、G-code 导出和双向串口诊断。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>Tkinter</li><li>OpenCV</li><li>G-code</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">骨架轨迹与真实笔顺分别处理；执行效果取决于设备与参数。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article></div></section><section class="project-section" data-section><div class="section-heading"><div><span class="eyebrow">04 / EXPLORE</span><h2>NPU、通信与状态估计</h2><p>计算图部署、算子调优与滤波方法的工程探索。</p></div><span class="section-count">04</span></div><div class="project-grid"><article class="project-card " id="addrmsnormbias-910b" data-project data-category="compute" data-search="addrmsnormbias · ascend 910b npu、通信与状态估计 融合 residual add、rmsnorm 与逐通道 bias，探索按 shape/dtype 派发、ub tiling 和流水同步。 算子调优 ascend c npu tiling profiling 围绕真机画像迭代不同输入形状和数据类型的内核。 调优中；历史局部收益不代表整体性能，最新候选的完整精度与性能尚未收敛。">
+<div class="card-top"><span class="project-kind">算子调优</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#addrmsnormbias-910b">AddRmsNormBias · Ascend 910B</a></h3>
+<p class="description">融合 residual add、RMSNorm 与逐通道 bias，探索按 shape/dtype 派发、UB tiling 和流水同步。</p><ul class="tags" aria-label="技术栈"><li>Ascend C</li><li>NPU</li><li>Tiling</li><li>Profiling</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>围绕真机画像迭代不同输入形状和数据类型的内核。</li></ul><p class="note">调优中；历史局部收益不代表整体性能，最新候选的完整精度与性能尚未收敛。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article><article class="project-card " id="ofdm-ursp-npu" data-project data-category="compute" data-search="ofdm 计算图与 npu 部署 npu、通信与状态估计 将复数 dft/idft、fft、导频与信道处理及 ldpc 编码组织为可导出的计算图，探索 npu 推理。 项目实践 python ofdm onnx ascend 固定权重变换计算图；吞吐与数值收益需用硬件对照验证。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#ofdm-ursp-npu">OFDM 计算图与 NPU 部署</a></h3>
+<p class="description">将复数 DFT/IDFT、FFT、导频与信道处理及 LDPC 编码组织为可导出的计算图，探索 NPU 推理。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>OFDM</li><li>ONNX</li><li>Ascend</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">固定权重变换计算图；吞吐与数值收益需用硬件对照验证。</p><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/OFDM_URSP_NPU/blob/b0175001733167844b9918dbb21e1a1fb6e1d87e/DFT/dft256_mat.py">DFT/dft256_mat.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/OFDM_URSP_NPU/blob/b0175001733167844b9918dbb21e1a1fb6e1d87e/FFT/fft256.py">FFT/fft256.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/OFDM_URSP_NPU/blob/b0175001733167844b9918dbb21e1a1fb6e1d87e/ofdm_generator_steps.md">ofdm_generator_steps.md <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/OFDM_URSP_NPU">OFDM_URSP_NPU <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="pdistcustom" data-project data-category="compute" data-search="pdist 自定义算子 npu、通信与状态估计 昇腾自定义距离计算算子实践，记录算子开发、编译与调用流程。 算子实践 ascend c c++ npu ">
+<div class="card-top"><span class="project-kind">算子实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#pdistcustom">Pdist 自定义算子</a></h3>
+<p class="description">昇腾自定义距离计算算子实践，记录算子开发、编译与调用流程。</p><ul class="tags" aria-label="技术栈"><li>Ascend C</li><li>C++</li><li>NPU</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/PdistCustom/blob/4b91f2d3768b81196d4e55adfef46922b0c1f22f/op_host/pdist_custom.cpp">op_host/pdist_custom.cpp <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/PdistCustom/blob/4b91f2d3768b81196d4e55adfef46922b0c1f22f/op_kernel/pdist_custom.cpp">op_kernel/pdist_custom.cpp <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/PdistCustom/blob/4b91f2d3768b81196d4e55adfef46922b0c1f22f/st_test/expect_func.py">st_test/expect_func.py <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/PdistCustom">PdistCustom <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="drone-swarm" data-project data-category="compute" data-search="非高斯噪声下的状态估计 npu、通信与状态估计 比较 kf、bikf、vbkf 与学习增强状态估计方法，结合滤波研究与仿真实验。 研究探索 python matlab kalman gru 仓库名为 drone-swarm，实际内容以状态估计研究为主。">
+<div class="card-top"><span class="project-kind">研究探索</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#drone-swarm">非高斯噪声下的状态估计</a></h3>
+<p class="description">比较 KF、BIKF、VBKF 与学习增强状态估计方法，结合滤波研究与仿真实验。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>Matlab</li><li>Kalman</li><li>GRU</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">仓库名为 Drone-Swarm，实际内容以状态估计研究为主。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article></div></section><section class="project-section" data-section><div class="section-heading"><div><span class="eyebrow">05 / EXPLORE</span><h2>视觉、OCR 与语言工具</h2><p>从文字采集、图像识别，到词汇与假名学习。</p></div><span class="section-count">09</span></div><div class="project-grid"><article class="project-card " id="shotocr" data-project data-category="vision" data-search="shotocr · python → c++ 视觉、ocr 与语言工具 快捷键截图识别与语音转文字桌面工具，从 python 实现迁移到 c++ windows 原生版本。 项目实践 python c++ win32 ocr 两种实现合并展示，分别提供源码入口。">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#shotocr">ShotOcr · Python → C++</a></h3>
+<p class="description">快捷键截图识别与语音转文字桌面工具，从 Python 实现迁移到 C++ Windows 原生版本。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>C++</li><li>Win32</li><li>OCR</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">两种实现合并展示，分别提供源码入口。</p><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/ShotOcr/blob/0ae76f236b366ed8f590667f1bc71ee8d742ce2d/README.md">README.md <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/ShotOcr/blob/0ae76f236b366ed8f590667f1bc71ee8d742ce2d/main.py">main.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/ShotOcr/blob/0ae76f236b366ed8f590667f1bc71ee8d742ce2d/screen_capture.py">screen_capture.py <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/ShotOcr">ShotOcr <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/ShotOcr_C">ShotOcr_C <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="lightflows" data-project data-category="vision" data-search="lightflows · 词典笔输入 视觉、ocr 与语言工具 为 android 词典笔提供扫描文字与语音输入交互，探索特征匹配、图像拼接与识别接口。 项目实践 android kotlin opencv ocr ">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#lightflows">LightFlows · 词典笔输入</a></h3>
+<p class="description">为 Android 词典笔提供扫描文字与语音输入交互，探索特征匹配、图像拼接与识别接口。</p><ul class="tags" aria-label="技术栈"><li>Android</li><li>Kotlin</li><li>OpenCV</li><li>OCR</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/LightFlows/blob/af117f105e9b7a14354bc0137a8174e2d55500fd/LightFlows/app/src/main/java/com/dypho/lightflows/FastInputIME.java">LightFlows/app/src/main/java/com/dypho/lightflows/FastInputIME.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/LightFlows/blob/af117f105e9b7a14354bc0137a8174e2d55500fd/LightFlows/app/src/main/java/com/dypho/lightflows/Catcher.java">LightFlows/app/src/main/java/com/dypho/lightflows/Catcher.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/LightFlows/blob/af117f105e9b7a14354bc0137a8174e2d55500fd/LightFlows/app/src/main/java/com/dypho/lightflows/CameraMovementEstimator.java">LightFlows/app/src/main/java/com/dypho/lightflows/CameraMovementEstimator.java <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/LightFlows">LightFlows <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="roughdict" data-project data-category="vision" data-search="roughdict 视觉、ocr 与语言工具 在手机端查询词义，通过关联词跳转继续学习。 早期实践 android 词典 语言学习 ">
+<div class="card-top"><span class="project-kind">早期实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#roughdict">Roughdict</a></h3>
+<p class="description">在手机端查询词义，通过关联词跳转继续学习。</p><ul class="tags" aria-label="技术栈"><li>Android</li><li>词典</li><li>语言学习</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/roughdict/blob/a9a9cb93f042a7d7cf64a3eeb689e290009159eb/roughdict/app/src/main/java/com/dypho/roughdict/MainActivity.java">roughdict/app/src/main/java/com/dypho/roughdict/MainActivity.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/roughdict/blob/a9a9cb93f042a7d7cf64a3eeb689e290009159eb/roughdict/app/src/main/java/com/dypho/roughdict/HttpsUtils.java">roughdict/app/src/main/java/com/dypho/roughdict/HttpsUtils.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/roughdict/blob/a9a9cb93f042a7d7cf64a3eeb689e290009159eb/roughdict/app/src/main/java/com/dypho/roughdict/Utils.java">roughdict/app/src/main/java/com/dypho/roughdict/Utils.java <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/roughdict">roughdict <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="wordshelper" data-project data-category="vision" data-search="wordshelper 视觉、ocr 与语言工具 整合词库、派生词练习与动态复习计划，辅助英语词汇学习。 项目实践 python flask sqlite 语言学习 ">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#wordshelper">WordsHelper</a></h3>
+<p class="description">整合词库、派生词练习与动态复习计划，辅助英语词汇学习。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>Flask</li><li>SQLite</li><li>语言学习</li></ul>
+<div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article><article class="project-card " id="rel-word-creater" data-project data-category="vision" data-search="派生词生成与练习 视觉、ocr 与语言工具 生成可复用的词根、派生词与释义数据，按同一 json 契约组织选择题练习。 工具实践 python json 词根 ">
+<div class="card-top"><span class="project-kind">工具实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#rel-word-creater">派生词生成与练习</a></h3>
+<p class="description">生成可复用的词根、派生词与释义数据，按同一 JSON 契约组织选择题练习。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>JSON</li><li>词根</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/rel_word_creater/blob/ad251d705e1d3a42b33d3f4bcce6c2290a658723/README.md">README.md <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/rel_word_creater/blob/ad251d705e1d3a42b33d3f4bcce6c2290a658723/rel_word_creater/app/src/main/java/com/example/creator/HttpsUtils.java">rel_word_creater/app/src/main/java/com/example/creator/HttpsUtils.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/rel_word_creater/blob/ad251d705e1d3a42b33d3f4bcce6c2290a658723/rel_word_creater/app/src/main/java/com/example/creator/Utils.java">rel_word_creater/app/src/main/java/com/example/creator/Utils.java <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/rel_word_creater">rel_word_creater <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/rel_word_test">rel_word_test <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="kanavox" data-project data-category="vision" data-search="kanavox 视觉、ocr 与语言工具 围绕日语假名学习与练习构建 android 界面和交互。 项目实践 kotlin android compose ">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#kanavox">KanaVox</a></h3>
+<p class="description">围绕日语假名学习与练习构建 Android 界面和交互。</p><ul class="tags" aria-label="技术栈"><li>Kotlin</li><li>Android</li><li>Compose</li></ul>
+<div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article><article class="project-card " id="youdao-public" data-project data-category="vision" data-search="有道接口客户端 视觉、ocr 与语言工具 将词典、翻译、ocr 与语音接口组织为可复用客户端，并记录各接口验证范围。 项目实践 python ocr 翻译 语音 ">
+<div class="card-top"><span class="project-kind">项目实践</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#youdao-public">有道接口客户端</a></h3>
+<p class="description">将词典、翻译、OCR 与语音接口组织为可复用客户端，并记录各接口验证范围。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>OCR</li><li>翻译</li><li>语音</li></ul>
+<div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article><article class="project-card " id="yolo-test" data-project data-category="vision" data-search="yolo / 昇腾视觉实验 视觉、ocr 与语言工具 探索昇腾推理、dvpp、相机标定与不同检测 pipeline。 视觉实验 python yolo ascend 相机 ">
+<div class="card-top"><span class="project-kind">视觉实验</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#yolo-test">YOLO / 昇腾视觉实验</a></h3>
+<p class="description">探索昇腾推理、DVPP、相机标定与不同检测 pipeline。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>YOLO</li><li>Ascend</li><li>相机</li></ul>
+<div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article><article class="project-card " id="image-catcher" data-project data-category="vision" data-search="手柄触发采图 视觉、ocr 与语言工具 用手柄按钮释放事件捕获相机帧，按编号保存以辅助数据采集。 小型工具 python opencv 手柄 ">
+<div class="card-top"><span class="project-kind">小型工具</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#image-catcher">手柄触发采图</a></h3>
+<p class="description">用手柄按钮释放事件捕获相机帧，按编号保存以辅助数据采集。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>OpenCV</li><li>手柄</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/image-catcher/blob/fbc94742b4f76680d77355572ee70db9c0d121d9/joystick_screenshot.py">joystick_screenshot.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/image-catcher/commit/fbc94742b4f76680d77355572ee70db9c0d121d9">首次记录 <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/image-catcher/commit/fbc94742b4f76680d77355572ee70db9c0d121d9">HEAD <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/image-catcher">image-catcher <span aria-hidden="true">↗</span></a></div></article></div></section><section class="project-section" data-section><div class="section-heading"><div><span class="eyebrow">06 / EXPLORE</span><h2>独立工具与运行时</h2><p>围绕桌面、移动端和底层运行时解决具体问题。</p></div><span class="section-count">02</span></div><div class="project-grid"><article class="project-card " id="pulsejet" data-project data-category="tool" data-search="pulsejet 独立工具与运行时 扫描并连接蓝牙心率设备，提供实时 bpm 界面、前台服务与本地记录。 应用原型 kotlin android ble room 应用原型，设备兼容范围以实际测试为准。">
+<div class="card-top"><span class="project-kind">应用原型</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#pulsejet">PulseJet</a></h3>
+<p class="description">扫描并连接蓝牙心率设备，提供实时 BPM 界面、前台服务与本地记录。</p><ul class="tags" aria-label="技术栈"><li>Kotlin</li><li>Android</li><li>BLE</li><li>Room</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">应用原型，设备兼容范围以实际测试为准。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article><article class="project-card " id="microphone-visualizer" data-project data-category="tool" data-search="拍击声音频谱实验 独立工具与运行时 采集麦克风信号并可视化频谱，探索拍击声音与西瓜成熟度之间的经验判定。 早期实践 java android fft 经验阈值实验；未声称成熟度预测准确率。">
+<div class="card-top"><span class="project-kind">早期实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#microphone-visualizer">拍击声音频谱实验</a></h3>
+<p class="description">采集麦克风信号并可视化频谱，探索拍击声音与西瓜成熟度之间的经验判定。</p><ul class="tags" aria-label="技术栈"><li>Java</li><li>Android</li><li>FFT</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">经验阈值实验；未声称成熟度预测准确率。</p><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/microphone_visualizer/blob/7309c10e86b5ae4443c5f07473531feb000b38f4/app/src/main/java/com/dypho/audiovisualization/AudioVisualizationActivity.java">app/src/main/java/com/dypho/audiovisualization/AudioVisualizationActivity.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/microphone_visualizer/blob/7309c10e86b5ae4443c5f07473531feb000b38f4/app/src/main/java/com/dypho/audiovisualization/WaveformView.java">app/src/main/java/com/dypho/audiovisualization/WaveformView.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/microphone_visualizer/blob/7309c10e86b5ae4443c5f07473531feb000b38f4/README.md">README.md <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/microphone_visualizer">microphone_visualizer <span aria-hidden="true">↗</span></a></div></article></div></section><section class="project-section" data-section><div class="section-heading"><div><span class="eyebrow">07 / EXPLORE</span><h2>Web 产品与协作</h2><p>账号、问卷、匹配与多端入口的产品实践。</p></div><span class="section-count">01</span></div><div class="project-grid"><article class="project-card " id="line4love" data-project data-category="web" data-search="川遇 · line4love web 产品与协作 校园社交匹配项目，连接账号与问卷、匹配结果、联系方式解锁及微信小程序入口。 协作项目 python fastapi sqlite uni-app 复用 web-view 业务页面，维护网页账号与微信身份绑定。 离线 matcher 校验题库与生成配置，执行规则打分和去重配对。 协作项目；matcher 使用确定性规则和贪心配对，ai 辅助配置与文案。真实使用规模未作量化声明。">
+<div class="card-top"><span class="project-kind">协作项目</span><span class="visibility private">私有项目</span></div>
+<h3><a class="permalink" href="#line4love">川遇 · line4love</a></h3>
+<p class="description">校园社交匹配项目，连接账号与问卷、匹配结果、联系方式解锁及微信小程序入口。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>FastAPI</li><li>SQLite</li><li>uni-app</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><ul class="highlights"><li>复用 web-view 业务页面，维护网页账号与微信身份绑定。</li><li>离线 matcher 校验题库与生成配置，执行规则打分和去重配对。</li></ul><p class="note">协作项目；matcher 使用确定性规则和贪心配对，AI 辅助配置与文案。真实使用规模未作量化声明。</p></div></details><div class="repo-links"><span class="private-note">源码未公开 · 可阅读项目概要</span></div></article></div></section><section class="project-section" data-section><div class="section-heading"><div><span class="eyebrow">08 / EXPLORE</span><h2>开源二次开发</h2><p>在上游基础上处理输入交互、图形运行时和版本适配。</p></div><span class="section-count">04</span></div><div class="project-grid"><article class="project-card " id="magpie" data-project data-category="opensource" data-search="magpie · amd 运行时接入 开源二次开发 在个人功能分支接入 amdnr/lmxxf 运行时，处理共享纹理、fence 同步、参数缓存和 resize 重建。 开源二次开发 c++ hlsl d3d11 d3d12 贡献位于 feat/amd-lmxxf-nr；magpie、网络模型与运行时来自上游及第三方。">
+<div class="card-top"><span class="project-kind">开源二次开发</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#magpie">Magpie · AMD 运行时接入</a></h3>
+<p class="description">在个人功能分支接入 AMDNR/lmxxf 运行时，处理共享纹理、Fence 同步、参数缓存和 resize 重建。</p><ul class="tags" aria-label="技术栈"><li>C++</li><li>HLSL</li><li>D3D11</li><li>D3D12</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">贡献位于 feat/amd-lmxxf-nr；Magpie、网络模型与运行时来自上游及第三方。</p><div class="upstream"><a href="https://github.com/SAOG0721/Magpie">上游 · SAOG0721/Magpie <span aria-hidden="true">↗</span></a></div><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/Magpie/blob/448b2f3b95fa8085672e3f56c8ed35dbd2a8b98c/docs/experimental/effects/AMDNR.md">docs/experimental/effects/AMDNR.md <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Magpie/blob/448b2f3b95fa8085672e3f56c8ed35dbd2a8b98c/src/Magpie.Core/AmdLmxxfNRFilter.cpp">src/Magpie.Core/AmdLmxxfNRFilter.cpp <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Magpie/blob/448b2f3b95fa8085672e3f56c8ed35dbd2a8b98c/src/Magpie.Core/include/LmxxfNrApi.h">src/Magpie.Core/include/LmxxfNrApi.h <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/Magpie/tree/feat/amd-lmxxf-nr">Magpie <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="touhoulittlemaid" data-project data-category="opensource" data-search="车万女仆 · 模型与会话适配 开源二次开发 增加 tts 提供方模型选项与界面字段，区分实体主会话和子会话的请求标识。 开源二次开发 java forge llm tts 上游 tartaricacid/touhoulittlemaid；个人增量为接口与会话路由适配。">
+<div class="card-top"><span class="project-kind">开源二次开发</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#touhoulittlemaid">车万女仆 · 模型与会话适配</a></h3>
+<p class="description">增加 TTS 提供方模型选项与界面字段，区分实体主会话和子会话的请求标识。</p><ul class="tags" aria-label="技术栈"><li>Java</li><li>Forge</li><li>LLM</li><li>TTS</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">上游 TartaricAcid/TouhouLittleMaid；个人增量为接口与会话路由适配。</p><div class="upstream"><a href="https://github.com/TartaricAcid/TouhouLittleMaid">上游 · TartaricAcid/TouhouLittleMaid <span aria-hidden="true">↗</span></a></div><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/TouhouLittleMaid/blob/ee1c5242822be58d271c3e3a6b3910c2255af599/src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/manager/entity/LLMCallback.java">src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/manager/entity/LLMCallback.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/TouhouLittleMaid/blob/ee1c5242822be58d271c3e3a6b3910c2255af599/src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/manager/entity/grounded/GroundedAnswerCallback.java">src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/manager/entity/grounded/GroundedAnswerCallback.java <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/TouhouLittleMaid/blob/ee1c5242822be58d271c3e3a6b3910c2255af599/src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/service/llm/openai/LLMOpenAIClient.java">src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/service/llm/openai/LLMOpenAIClient.java <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/TouhouLittleMaid">TouhouLittleMaid <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="baritone" data-project data-category="opensource" data-search="baritone · 1.20.1 工具链适配 开源二次开发 在 1.20.1 分支调整 forge 构建与映射转换，清理旧工具链模块。 开源适配 java gradle forge mojmap 上游 cabaletta/baritone；寻路算法属于上游，个人工作聚焦构建适配。">
+<div class="card-top"><span class="project-kind">开源适配</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#baritone">Baritone · 1.20.1 工具链适配</a></h3>
+<p class="description">在 1.20.1 分支调整 Forge 构建与映射转换，清理旧工具链模块。</p><ul class="tags" aria-label="技术栈"><li>Java</li><li>Gradle</li><li>Forge</li><li>Mojmap</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">上游 cabaletta/baritone；寻路算法属于上游，个人工作聚焦构建适配。</p><div class="upstream"><a href="https://github.com/cabaletta/baritone">上游 · cabaletta/baritone <span aria-hidden="true">↗</span></a></div><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/baritone/blob/2e52d6e8ec8fc3a359d636bf136e6f723830dd9b/build.gradle">build.gradle <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/baritone/blob/2e52d6e8ec8fc3a359d636bf136e6f723830dd9b/forge/build.gradle">forge/build.gradle <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/baritone/blob/2e52d6e8ec8fc3a359d636bf136e6f723830dd9b/gradle.properties">gradle.properties <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/baritone/tree/1.20.1">baritone <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="mc-leashplayers" data-project data-category="opensource" data-search="玩家拴绳 · forge 适配 开源二次开发 适配 minecraft 1.20.1 / forge 的依赖、mixin 签名、gamerules 注册和资源格式。 开源适配 java mixin forge gradle 上游 pog5/mc-leashplayers；个人改动位于 forge-1.20.1-47.4.23 分支。">
+<div class="card-top"><span class="project-kind">开源适配</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#mc-leashplayers">玩家拴绳 · Forge 适配</a></h3>
+<p class="description">适配 Minecraft 1.20.1 / Forge 的依赖、Mixin 签名、GameRules 注册和资源格式。</p><ul class="tags" aria-label="技术栈"><li>Java</li><li>Mixin</li><li>Forge</li><li>Gradle</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">上游 pog5/mc-leashplayers；个人改动位于 forge-1.20.1-47.4.23 分支。</p><div class="upstream"><a href="https://github.com/pog5/mc-leashplayers">上游 · pog5/mc-leashplayers <span aria-hidden="true">↗</span></a></div><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/mc-leashplayers/blob/a0fa27d43e70df7ed2a1215275cad4112691eb98/gradle.properties">gradle.properties <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/mc-leashplayers/blob/a0fa27d43e70df7ed2a1215275cad4112691eb98/build.gradle">build.gradle <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/mc-leashplayers/blob/a0fa27d43e70df7ed2a1215275cad4112691eb98/forge/build.gradle">forge/build.gradle <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/mc-leashplayers/tree/forge-1.20.1-47.4.23">mc-leashplayers <span aria-hidden="true">↗</span></a></div></article></div></section><section class="project-section" data-section><div class="section-heading"><div><span class="eyebrow">09 / EXPLORE</span><h2>课程实践与科研复现</h2><p>把算法、论文与实验流程落实为可检查的工程。</p></div><span class="section-count">03</span></div><div class="project-grid"><article class="project-card " id="latent-kalmannet-tsp" data-project data-category="learning" data-search="latent kalmannet · 工程复现 课程实践与科研复现 整理论文与代码对应关系，修复设备、依赖和路径问题，补充 cpu 支持与一键实验入口。 科研复现 python pytorch kalman cpu &amp; cuda 算法来自 kalmannet 上游；个人工作为工程复现与运行修复，最终误差须按论文口径比较。">
+<div class="card-top"><span class="project-kind">科研复现</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#latent-kalmannet-tsp">Latent KalmanNet · 工程复现</a></h3>
+<p class="description">整理论文与代码对应关系，修复设备、依赖和路径问题，补充 CPU 支持与一键实验入口。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>PyTorch</li><li>Kalman</li><li>CPU &amp; CUDA</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">算法来自 KalmanNet 上游；个人工作为工程复现与运行修复，最终误差须按论文口径比较。</p><div class="upstream"><a href="https://github.com/KalmanNet/Latent_KalmanNet_TSP">上游 · KalmanNet/Latent_KalmanNet_TSP <span aria-hidden="true">↗</span></a></div><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/Latent_KalmanNet_TSP/blob/38b9bb9d5c67dbfa31663a6eab80561cfb5173a0/Pipeline_KF_visual_gpu.py">Pipeline_KF_visual_gpu.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Latent_KalmanNet_TSP/blob/38b9bb9d5c67dbfa31663a6eab80561cfb5173a0/KalmanNet_nn_visual_new_architecture_gpu.py">KalmanNet_nn_visual_new_architecture_gpu.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/Latent_KalmanNet_TSP/blob/38b9bb9d5c67dbfa31663a6eab80561cfb5173a0/main_AE.py">main_AE.py <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/Latent_KalmanNet_TSP">Latent_KalmanNet_TSP <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="dip-experiment1" data-project data-category="learning" data-search="漫画人脸检测与关键点实验 课程实践与科研复现 从整数通道与像素差弱树构建级联检测，结合困难负样本、nms、rbf 复核、框修正和关键点回归。 课程实践 python opencv cascade hog ridge 课程实验；hrnet 教师与数据来自第三方，已接触测试集，现有指标不作为独立盲测结论。">
+<div class="card-top"><span class="project-kind">课程实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#dip-experiment1">漫画人脸检测与关键点实验</a></h3>
+<p class="description">从整数通道与像素差弱树构建级联检测，结合困难负样本、NMS、RBF 复核、框修正和关键点回归。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>OpenCV</li><li>Cascade</li><li>HOG</li><li>Ridge</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><p class="note">课程实验；HRNet 教师与数据来自第三方，已接触测试集，现有指标不作为独立盲测结论。</p><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/DIP-experiment1/blob/5937bccf919f45d04eb79f6baf49acfbc2b06e19/README.md">README.md <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/DIP-experiment1/blob/5937bccf919f45d04eb79f6baf49acfbc2b06e19/src/channels11.py">src/channels11.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/DIP-experiment1/blob/5937bccf919f45d04eb79f6baf49acfbc2b06e19/src/weak_tree_training.py">src/weak_tree_training.py <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/DIP-experiment1">DIP-experiment1 <span aria-hidden="true">↗</span></a></div></article><article class="project-card " id="ai-foundations-course" data-project data-category="learning" data-search="ai 基础课程实践 课程实践与科研复现 围绕数据处理、可视化、图像处理、训练观察与目标检测组织课程练习。 课程实践 python numpy sklearn pytorch ">
+<div class="card-top"><span class="project-kind">课程实践</span><span class="visibility ">公开源码</span></div>
+<h3><a class="permalink" href="#ai-foundations-course">AI 基础课程实践</a></h3>
+<p class="description">围绕数据处理、可视化、图像处理、训练观察与目标检测组织课程练习。</p><ul class="tags" aria-label="技术栈"><li>Python</li><li>NumPy</li><li>sklearn</li><li>PyTorch</li></ul>
+<details><summary>实现亮点与说明</summary><div class="detail-body"><div class="evidence"><span>代码与提交</span><a href="https://github.com/daife/AI-Foundations-Course/blob/514d095ffd574785a48f06992766416373603375/prog1/kmeans.py">prog1/kmeans.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/AI-Foundations-Course/blob/514d095ffd574785a48f06992766416373603375/prog2/classifier.py">prog2/classifier.py <span aria-hidden="true">↗</span></a><a href="https://github.com/daife/AI-Foundations-Course/blob/514d095ffd574785a48f06992766416373603375/prog3/LD_experiment_common.py">prog3/LD_experiment_common.py <span aria-hidden="true">↗</span></a></div></div></details><div class="repo-links"><a href="https://github.com/daife/AI-Foundations-Course">AI-Foundations-Course <span aria-hidden="true">↗</span></a></div></article></div></section></div>
+<div class="empty-state" id="empty-state" hidden><h3>没有找到匹配项目</h3><p>可以试试其他关键词，或重置筛选查看全部项目。</p><button class="button secondary" type="button" id="empty-reset">查看全部项目</button></div>
 </section>
-<section class="category">
-<h2><span class="emoji">💕</span> 社交平台</h2>
-<div class="repo-grid">
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/line4love">line4love</a> <span class="tag private">private</span></div>
-<div class="desc">「在成都，遇见同频的你」—— 基于学校邮箱验证的在线匹配平台。FastAPI + SQLite + Resend 邮件验证。</div>
-<div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span></div>
-<div class="meta"><span>121 commits</span></div>
-</div>
-</div>
-</section>
-
-<section class="category">
-<h2><span class="emoji">🤖</span> 机器人 · 无人机 · 嵌入式</h2>
-<div class="repo-grid">
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/bot">bot</a> <span class="tag public">public</span></div>
-<div class="desc">「香澄派小车」—— ROS2 完整机器人项目。多自定义 Node、通信接口、PyQt5 UI 远程控制、systemd 自启动服务。</div>
-<div class="tags"><span class="tag">Python</span><span class="tag">ROS2</span><span class="tag">PyQt5</span></div>
-<div class="meta"><span>146 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/swarm-ros">swarm-ros</a> <span class="tag private">private</span></div>
-<div class="desc">多无人机追捕-逃避博弈 RL 仿真系统。Gazebo Harmonic 真仿真 + MADDPG/DDPG 策略，完整训练协调框架。</div>
-<div class="tags"><span class="tag">Python</span><span class="tag">ROS2</span><span class="tag">MADDPG</span><span class="tag">Gazebo</span></div>
-<div class="meta"><span>41 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/Drone-Swarm">Drone-Swarm</a> <span class="tag private">private</span></div>
-<div class="desc">无人机集群研究项目。GRU + Kalman Filter 算法研究、Matlab/Python 双实现、论文搜集整理。</div>
-<div class="tags"><span class="tag">GRU</span><span class="tag">Kalman</span><span class="tag">Matlab</span><span class="tag">Python</span></div>
-<div class="meta"><span>11 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/ros-stm32">ros-stm32</a> <span class="tag private">private</span></div>
-<div class="desc">STM32H743IIT6 + ROS2 底层固件工程。MDK-ARM 项目，CubeMX 配置 MPU/Cache/外设。</div>
-<div class="tags"><span class="tag">C</span><span class="tag">STM32</span><span class="tag">ROS2</span><span class="tag">FreeRTOS</span></div>
-<div class="meta"><span>6 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/Laser-Tracking-Control-System">Laser-Tracking-Control-System</a> <span class="tag private">private</span></div>
-<div class="desc">英才校队招新 — 激光跟踪系统。二维云台机械设计 + OpenCV 视觉标定 + 贝塞尔插值 + 增量式 PID 控制器。</div>
-<div class="tags"><span class="tag">OpenCV</span><span class="tag">PID</span><span class="tag">香橙派</span></div>
-<div class="meta"><span>13 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/Syber_wand">Syber_wand</a> <span class="tag public">public</span></div>
-<div class="desc">「赛博魔杖」— 英才杯比赛作品。ASRPRO 语音模块 + JX-03 HID 键盘鼠标 + 3D 打印外壳，语音控制电脑。</div>
-<div class="tags"><span class="tag">ASRPRO</span><span class="tag">HID</span><span class="tag">3D打印</span><span class="tag">嵌入式</span></div>
-<div class="meta"><span>38 commits</span></div>
-</div>
-
-</div>
-</section>
-
-<section class="category">
-<h2><span class="emoji">🛠️</span> 实用工具</h2>
-<div class="repo-grid">
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/Writing-machine">Writing-machine</a> <span class="tag private">private</span></div>
-<div class="desc">写字机 GUI 工具。导入作业纸照片 → 标定角点 → 生成字迹轨迹 → 导出 GRBL/G-code → 串口发送写字机。</div>
-<div class="tags"><span class="tag">Python</span><span class="tag">GRBL</span><span class="tag">G-code</span></div>
-<div class="meta"><span>26 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/ShotOcr">ShotOcr</a> <span class="tag public">public</span></div>
-<div class="desc">截图 OCR + 语音识别桌面工具。全局快捷键截图识别文字，语音转文字，系统托盘，开机自启。</div>
-<div class="tags"><span class="tag">Python</span><span class="tag">OCR</span><span class="tag">语音识别</span></div>
-<div class="meta"><span>12 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/ShotOcr_C">ShotOcr_C</a> <span class="tag public">public</span></div>
-<div class="desc">ShotOcr C++ Windows 原生版。CMake 构建，GDI+ 截图 + 全局快捷键 + 语音识别。</div>
-<div class="tags"><span class="tag">C++</span><span class="tag">CMake</span><span class="tag">Win32</span></div>
-<div class="meta"><span>11 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/wordsHelper">wordsHelper</a> <span class="tag private">private</span></div>
-<div class="desc">单词记忆助手 Flask Web 应用。用户管理 + 间隔重复记忆算法 + 词库管理 + 外部 API 集成。</div>
-<div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">SRS</span></div>
-<div class="meta"><span>21 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/webapp">webapp</a> <span class="tag private">private</span></div>
-<div class="desc">3D 虚拟角色 Web 应用。集成 MMD/VRM 模型，基于 Web 的 3D 交互体验。</div>
-<div class="tags"><span class="tag">MMD</span><span class="tag">VRM</span><span class="tag">3D</span></div>
-<div class="meta"><span>13 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/LightFlows">LightFlows</a> <span class="tag public">public</span></div>
-<div class="desc">词典笔输入法 Android 应用。OpenCV 特征匹配拼接 + 有道 OCR + 讯飞语音接口。</div>
-<div class="tags"><span class="tag">Android</span><span class="tag">Kotlin</span><span class="tag">OpenCV</span></div>
-<div class="meta"><span>9 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/datasets2">datasets2</a> <span class="tag public">public</span></div>
-<div class="desc">LabelMe JSON → YOLO Segmentation TXT 批量转换工具。自动划分训练/验证集。</div>
-<div class="tags"><span class="tag">Python</span><span class="tag">YOLO</span><span class="tag">LabelMe</span></div>
-<div class="meta"><span>11 commits</span></div>
-</div>
-
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/KanaVox">KanaVox</a> <span class="tag private">private</span></div>
-<div class="desc">日语基础学习 Android App (Kotlin)。假名 (Kana) 学习与练习，Material Design 3 界面，Jetpack Compose 构建。</div>
-<div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span><span class="tag">日语</span><span class="tag">Compose</span></div>
-<div class="meta"><span>6 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/PulseJet">PulseJet</a> <span class="tag private">private</span></div>
-<div class="desc">Android BLE 心率监测 App。扫描连接 HRS 蓝牙设备，实时 BPM 仪表盘 + Room 数据库记录 + 前台服务。Material Design 3 活力风格。</div>
-<div class="tags"><span class="tag">Kotlin</span><span class="tag">BLE</span><span class="tag">Android</span><span class="tag">Compose</span></div>
-<div class="meta"><span>1 commit</span></div>
-</div>
-</div>
-</section>
-
-<section class="category">
-<h2><span class="emoji">📡</span> 通信 · 信号处理</h2>
-<div class="repo-grid">
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/OFDM_URSP_NPU">OFDM_URSP_NPU</a> <span class="tag public">public</span></div>
-<div class="desc">OFDM 通信系统 + 昇腾 NPU 硬件加速。DFT/FFT/IDFT、LDPC 编解码、YOLO 集成、UHD/USRP 驱动。</div>
-<div class="tags"><span class="tag">OFDM</span><span class="tag">NPU</span><span class="tag">LDPC</span><span class="tag">ONNX</span></div>
-<div class="meta"><span>63 commits</span>
-
-</div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/signex">signex</a> <span class="tag private">private</span></div>
-<div class="desc">随机信号分析 AI Agent。Anthropic tool-use 格式封装信号采集/FFT/PSD/平稳性检测为 Agent skill tools。</div>
-<div class="tags"><span class="tag">信号处理</span><span class="tag">AI Agent</span><span class="tag">FFT</span></div>
-<div class="meta"><span>23 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/microphone_visualizer">microphone_visualizer</a> <span class="tag public">public</span></div>
-<div class="desc">「挑西瓜」— Android 拍西瓜频谱分析仪。FFT 实时分析拍打频率（133-189Hz），判断成熟度。</div>
-<div class="tags"><span class="tag">Java</span><span class="tag">Android</span><span class="tag">FFT</span></div>
-<div class="meta"><span>18 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/EMF-EMW">EMF-EMW</a> <span class="tag private">private</span></div>
-<div class="desc">电磁场与电磁波课程资料归档。课件、教材、课程设计、Excalidraw 笔记。</div>
-<div class="tags"><span class="tag">电磁场</span></div>
-<div class="meta"><span>13 commits</span></div>
-</div>
-
-</div>
-</section>
-
-<section class="category">
-<h2><span class="emoji">🧠</span> AI · 计算机视觉</h2>
-<div class="repo-grid">
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/yolo_test">yolo_test</a> <span class="tag private">private</span></div>
-<div class="desc">昇腾 NPU 实时 YOLO 摄像头检测。aclTest/dvppTest/摄像头标定/多 pipeline 测试。</div>
-<div class="tags"><span class="tag">YOLO</span><span class="tag">NPU</span><span class="tag">昇腾</span></div>
-<div class="meta"><span>24 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/Dian_C">Dian_C</a> <span class="tag public">public</span></div>
-<div class="desc">摄像头数字识别系统。PyQt5 + OpenCV + ONNX Runtime + I2C，分水岭算法分割实时识别。</div>
-<div class="tags"><span class="tag">PyQt5</span><span class="tag">OpenCV</span><span class="tag">ONNX</span></div>
-<div class="meta"><span>30 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/AI-Foundations-Course">AI-Foundations-Course</a> <span class="tag public">public</span></div>
-<div class="desc">AI 基础课程 5 个练习项目：numpy/sklearn → matplotlib → scikit-image → TensorBoard → YOLO。</div>
-<div class="tags"><span class="tag">Python</span><span class="tag">sklearn</span><span class="tag">YOLO</span><span class="tag">PyTorch</span></div>
-<div class="meta"><span>21 commits</span></div>
-</div>
-
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/datasets">datasets</a> <span class="tag public">public</span></div>
-<div class="desc">YOLO 目标检测数据集。4 类目标 (BLUE/RED/YELLOW/GREEN)，含图片/标签/增强配置。</div>
-<div class="tags"><span class="tag">YOLO</span><span class="tag">数据集</span></div>
-<div class="meta"><span>8 commits</span></div>
-</div>
-
-</div>
-</section>
-
-<section class="category">
-<h2><span class="emoji">📚</span> 学术 · 其他</h2>
-<div class="repo-grid">
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/Brain-Science">Brain-Science</a> <span class="tag private">private</span></div>
-<div class="desc">脑科学讲座笔记。王昱婧博士讲座资料整理，Excalidraw 绘图 + Obsidian Markdown 笔记。</div>
-<div class="tags"><span class="tag">脑科学</span><span class="tag">Obsidian</span></div>
-<div class="meta"><span>7 commits</span></div>
-</div>
-<div class="repo-card">
-<div class="title"><a href="https://github.com/daife/daife.github.io">daife.github.io</a> <span class="tag public">public</span></div>
-<div class="desc">就是这个站 👈 个人 GitHub Pages 项目展示主页。</div>
-<div class="meta"><span>146+ commits</span></div>
-</div>
-</div>
-</section>
-
-<footer class="footer">
-<p><a href="https://github.com/daife">GitHub</a></p>
-<p style="margin-top:12px;font-size:0.75rem;color:#484f58">daife · 2025</p>
-</footer>
-
-</div>
+<section class="journey container" id="journey"><div class="section-heading"><div><span class="eyebrow">BUILDING OVER TIME</span><h2>项目背后的探索轨迹</h2><p>沿仓库记录回看技术主题的变化；时间表示相关提交阶段。</p></div></div><ol class="timeline"><li><span class="timeline-date">2024</span><h3>从具体的小工具出发</h3><p>词典笔与 Android 输入、音频频谱、云台控制、姿态平衡和赛博魔杖。</p><a href="#lightflows">LightFlows ↗</a></li><li><span class="timeline-date">2025</span><h3>连接软件、硬件与计算</h3><p>ROS2 机器人、桌面 OCR、相机与硬件联调，以及 OFDM 计算图和滤波研究。</p><a href="#bot">ROS2 机器人 ↗</a></li><li><span class="timeline-date">2026 · 上半年</span><h3>组织工具与产品流程</h3><p>川遇、信号分析 Agent、Asayn 和 Lingua Lore，把工具执行与多端交互结合起来。</p><a href="#asayn">Asayn ↗</a></li><li><span class="timeline-date">2026 · 下半年</span><h3>深入状态与执行边界</h3><p>Echoo 同步、EchoPlayer 生命周期、TLS 补丁、NPU 算子，以及 Rust 与图形运行时扩展。</p><a href="#echoplayer">EchoPlayer ↗</a></li></ol></section>
+<section class="about container" id="about"><div><p class="eyebrow">ABOUT THIS WORK</p><h2>把问题拆开，<br>再把系统连接起来。</h2><p>我的项目跨越应用与底层：既关心用户怎样交互，也关心数据如何提交、控制权如何交接，以及工具如何在真实环境中执行。</p><a class="button secondary" href="https://github.com/daife">在 GitHub 了解更多 ↗</a></div><div class="reading-notes"><h3>如何阅读这份作品集</h3><dl><dt>项目组与仓库</dt><dd>共享历史或同一产品的客户端、服务端合并讲述；项目组数量不等于仓库数量。</dd><dt>开源与个人增量</dt><dd>Fork 卡片注明上游来源，入口指向实际贡献分支或固定提交，保留原项目与算法归属。</dd><dt>实现与验证</dt><dd>描述依据截至 2026-10-10 的源码与历史梳理。原型、课程实验和调优工作分别标注，不用提交数代替质量或使用效果。</dd><dt>私有项目</dt><dd>只展示概要，不提供访客无法访问的仓库链接；用户数据、内部配置和凭据不在本站发布。</dd></dl></div></section>
+</main>
+<footer class="container footer"><span>daife / Dypho <span class="footer-dot">·</span> 2026-10-11</span><div><a href="https://github.com/daife/daife.github.io">本站源码 ↗</a><a href="#top">回到顶部 ↑</a></div></footer>
 </body>
 </html>

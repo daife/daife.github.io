@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="daife / Dypho 的个人项目作品集：AI Agent、多端应用、Minecraft 模组、ROS2 机器人、NPU 算子与开源工程。探索具体实现、技术亮点与公开源码。">
+<meta property="og:title" content="daife · 从想法到可运行的系统">
+<meta property="og:description" content="AI Agent、游戏系统、机器人与底层工程。项目概要、实现亮点和公开源码。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://daife.github.io/">
+<meta name="theme-color" content="#0d1117">
+<link rel="canonical" href="https://daife.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+<title>daife · 个人项目与开源实践</title>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+<header class="site-header"><div class="container header-row"><a class="brand" href="#top" aria-label="daife 首页"><span class="brand-mark" aria-hidden="true">d.</span> daife <span class="brand-sub">/ Dypho</span></a><nav aria-label="主导航"><a href="#projects">项目</a><a href="#journey">轨迹</a><a href="#about">关于</a><a href="https://github.com/daife">GitHub ↗</a></nav></div></header>
+<main id="main">
+<section class="hero container" id="top">
+<div class="hero-copy"><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> PERSONAL PROJECTS & OPEN-SOURCE WORK</p><h1>从想法，<br>到可运行的<span>系统。</span></h1><p class="hero-intro">你好，我是 <strong>daife / Dypho</strong>。我探索 AI Agent 与交互应用，也编写游戏模组、调试机器人，研究计算图与底层运行时。</p><p class="hero-sub">这里记录我做过的项目，以及让它们运转的具体实现。</p><div class="hero-actions"><a class="button primary" href="#projects">浏览项目 <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://github.com/daife">查看 GitHub <span aria-hidden="true">↗</span></a></div></div>
+<div class="system-map" aria-label="技术方向：交互体验连接 Agent 与状态管理，再连接工具、游戏和硬件"><div class="map-head"><span class="map-dots" aria-hidden="true">● ● ●</span><span>what I build</span></div><div class="map-body"><p class="map-caption">从交互到执行</p><div class="map-layer"><span class="layer-index">01</span><div><strong>交互与体验</strong><small>Terminal · Desktop · Android · Web</small></div></div><div class="map-connector" aria-hidden="true">↓</div><div class="map-layer map-focus"><span class="layer-index">02</span><div><strong>Agent 与状态</strong><small>Tools · Memory · Sync · Lifecycle</small></div></div><div class="map-connector" aria-hidden="true">↓</div><div class="map-targets"><span>工具与运行时</span><span>游戏世界</span><span>机器人与 NPU</span></div><p class="map-foot">跨越不同技术栈，关注状态、接口与执行边界。</p></div></div>
+</section>
+<div class="overview container"><div><strong>{{TOTAL}}</strong><span>项目组</span></div><div><strong>09</strong><span>技术方向</span></div><div><strong>2024—2026</strong><span>项目与学习记录</span></div><p>关联仓库按项目组展示<br>内容更新于 {{UPDATED}}</p></div>
+<section class="container showcase" id="projects" aria-label="项目作品集">
+<div class="showcase-intro"><p class="eyebrow">PROJECT INDEX</p><h2>做过什么，也看怎么做。</h2><p>先看精选案例，再沿技术方向探索。展开卡片，可查看实现亮点、项目说明与源码证据。</p></div>
+<div class="explorer" id="explorer" hidden><div class="search-row"><label class="search-label" for="project-search">搜索项目或技术</label><input id="project-search" type="search" placeholder="试试 Rust、ROS2、同步、OCR…" autocomplete="off"><button type="button" class="reset" id="reset-filters">重置</button></div><div class="filters" role="group" aria-label="按技术方向筛选">{{FILTERS}}</div><p class="result-count" id="result-count" role="status" aria-live="polite">显示全部 {{TOTAL}} 个项目组</p></div>
+<div id="project-sections">{{PROJECTS}}</div>
+<div class="empty-state" id="empty-state" hidden><h3>没有找到匹配项目</h3><p>可以试试其他关键词，或重置筛选查看全部项目。</p><button class="button secondary" type="button" id="empty-reset">查看全部项目</button></div>
+</section>
+<section class="journey container" id="journey"><div class="section-heading"><div><span class="eyebrow">BUILDING OVER TIME</span><h2>项目背后的探索轨迹</h2><p>沿仓库记录回看技术主题的变化；时间表示相关提交阶段。</p></div></div><ol class="timeline"><li><span class="timeline-date">2024</span><h3>从具体的小工具出发</h3><p>词典笔与 Android 输入、音频频谱、云台控制、姿态平衡和赛博魔杖。</p><a href="#lightflows">LightFlows ↗</a></li><li><span class="timeline-date">2025</span><h3>连接软件、硬件与计算</h3><p>ROS2 机器人、桌面 OCR、相机与硬件联调，以及 OFDM 计算图和滤波研究。</p><a href="#bot">ROS2 机器人 ↗</a></li><li><span class="timeline-date">2026 · 上半年</span><h3>组织工具与产品流程</h3><p>川遇、信号分析 Agent、Asayn 和 Lingua Lore，把工具执行与多端交互结合起来。</p><a href="#asayn">Asayn ↗</a></li><li><span class="timeline-date">2026 · 下半年</span><h3>深入状态与执行边界</h3><p>Echoo 同步、EchoPlayer 生命周期、TLS 补丁、NPU 算子，以及 Rust 与图形运行时扩展。</p><a href="#echoplayer">EchoPlayer ↗</a></li></ol></section>
+<section class="about container" id="about"><div><p class="eyebrow">ABOUT THIS WORK</p><h2>把问题拆开，<br>再把系统连接起来。</h2><p>我的项目跨越应用与底层：既关心用户怎样交互，也关心数据如何提交、控制权如何交接，以及工具如何在真实环境中执行。</p><a class="button secondary" href="https://github.com/daife">在 GitHub 了解更多 ↗</a></div><div class="reading-notes"><h3>如何阅读这份作品集</h3><dl><dt>项目组与仓库</dt><dd>共享历史或同一产品的客户端、服务端合并讲述；项目组数量不等于仓库数量。</dd><dt>开源与个人增量</dt><dd>Fork 卡片注明上游来源，入口指向实际贡献分支或固定提交，保留原项目与算法归属。</dd><dt>实现与验证</dt><dd>描述依据截至 {{EVIDENCE_DATE}} 的源码与历史梳理。原型、课程实验和调优工作分别标注，不用提交数代替质量或使用效果。</dd><dt>私有项目</dt><dd>只展示概要，不提供访客无法访问的仓库链接；用户数据、内部配置和凭据不在本站发布。</dd></dl></div></section>
+</main>
+<footer class="container footer"><span>daife / Dypho <span class="footer-dot">·</span> {{UPDATED}}</span><div><a href="https://github.com/daife/daife.github.io">本站源码 ↗</a><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,1319 @@
+{
+  "updated": "2026-10-11",
+  "evidence_date": "2026-10-10",
+  "projects": [
+    {
+      "id": "asayn",
+      "name": "Asayn",
+      "category": "agent",
+      "tags": [
+        "Go",
+        "React",
+        "Tauri",
+        "MCP"
+      ],
+      "summary": "把文件工具、Skills、MCP 与异步子代理组织为共享本地引擎的终端和桌面开发助手。",
+      "highlights": [
+        "工作区会话、供应商配置与上下文压缩共用 Go 引擎。",
+        "异步子代理维护任务状态、恢复执行和结果回收。",
+        "处理流式输出、限流重试与工具调用顺序。"
+      ],
+      "note": "CLI 与桌面渠道在仓库中提供；跨平台使用效果以实际环境为准。",
+      "featured": true,
+      "kind": "项目实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "Asayn",
+          "url": "https://github.com/daife/Asayn"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "internal/llm/client.go",
+          "url": "https://github.com/daife/Asayn/blob/d994a65f211e390d29a9868f940b6797d72a8f52/internal/llm/client.go"
+        },
+        {
+          "label": "internal/tools/sub_agent.go",
+          "url": "https://github.com/daife/Asayn/blob/d994a65f211e390d29a9868f940b6797d72a8f52/internal/tools/sub_agent.go"
+        },
+        {
+          "label": "internal/session/session.go",
+          "url": "https://github.com/daife/Asayn/blob/d994a65f211e390d29a9868f940b6797d72a8f52/internal/session/session.go"
+        }
+      ]
+    },
+    {
+      "id": "echoplayer",
+      "name": "EchoPlayer",
+      "category": "game",
+      "tags": [
+        "Java",
+        "Forge",
+        "Mixin"
+      ],
+      "summary": "Minecraft 持久化虚拟玩家：创建分身、轮盘附身，保留独立身份、背包和世界状态。",
+      "highlights": [
+        "角色切换时迁移骑乘、睡眠、钓鱼和拴绳等实体关系。",
+        "控制租约协调真人附身与自动化，支持抢占和暂停。",
+        "维护死亡重生、皮肤同步及第三方模组兼容层。"
+      ],
+      "note": "借鉴 Advanced Fake Player（MIT）思路。核心源码公开；私有 Automation 扩展通过核心接口组织任务，作为同一项目组展示。",
+      "featured": true,
+      "kind": "项目实践",
+      "visibility": "部分公开",
+      "repos": [
+        {
+          "name": "EchoPlayer",
+          "url": "https://github.com/daife/EchoPlayer"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "src/main/java/com/echoplayer/manager/EchoPlayerManager.java",
+          "url": "https://github.com/daife/EchoPlayer/blob/bd49d9029d4cbbc40f195e920f7f7944687441a4/src/main/java/com/echoplayer/manager/EchoPlayerManager.java"
+        },
+        {
+          "label": "src/main/java/com/echoplayer/manager/StateSynchronizer.java",
+          "url": "https://github.com/daife/EchoPlayer/blob/bd49d9029d4cbbc40f195e920f7f7944687441a4/src/main/java/com/echoplayer/manager/StateSynchronizer.java"
+        },
+        {
+          "label": "src/main/java/com/echoplayer/api/control/AutomationControlLease.java",
+          "url": "https://github.com/daife/EchoPlayer/blob/bd49d9029d4cbbc40f195e920f7f7944687441a4/src/main/java/com/echoplayer/api/control/AutomationControlLease.java"
+        }
+      ]
+    },
+    {
+      "id": "lingua-lore",
+      "name": "Lingua Lore",
+      "category": "agent",
+      "tags": [
+        "TypeScript",
+        "Rust",
+        "Tauri",
+        "SQLite"
+      ],
+      "summary": "以互动故事连接外语阅读、划词翻译和世界记忆，包含桌面叙事核心、Android 试用端与中转服务。",
+      "highlights": [
+        "生成结果经过结构化校验与修复，再提交权威状态。",
+        "单个 SQLite 事务写入消息、人物、选项与记忆，避免半轮数据。",
+        "Starter 增加账号、邀请与额度接口，dphub 提供中转和账本。"
+      ],
+      "note": "两客户端共享早期历史；移动端改动与发布标签分别核查，学习效果尚无对照数据。",
+      "featured": true,
+      "kind": "项目实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "lingua-lore",
+          "url": "https://github.com/daife/lingua-lore"
+        },
+        {
+          "name": "lingua-lore-starter",
+          "url": "https://github.com/daife/lingua-lore-starter"
+        },
+        {
+          "name": "dphub",
+          "url": "https://github.com/daife/dphub"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "apps/desktop/src-tauri/src/story_runtime/turn_orchestrator.rs",
+          "url": "https://github.com/daife/lingua-lore/blob/dcc33647250b3d7cc2c65271fb3c2b485bf60bc5/apps/desktop/src-tauri/src/story_runtime/turn_orchestrator.rs"
+        },
+        {
+          "label": "apps/desktop/src-tauri/src/story_runtime/output_validator.rs",
+          "url": "https://github.com/daife/lingua-lore/blob/dcc33647250b3d7cc2c65271fb3c2b485bf60bc5/apps/desktop/src-tauri/src/story_runtime/output_validator.rs"
+        },
+        {
+          "label": "apps/desktop/src-tauri/src/turn_commit/committer.rs",
+          "url": "https://github.com/daife/lingua-lore/blob/dcc33647250b3d7cc2c65271fb3c2b485bf60bc5/apps/desktop/src-tauri/src/turn_commit/committer.rs"
+        }
+      ]
+    },
+    {
+      "id": "bot",
+      "name": "ROS2 机器人 · bot",
+      "category": "robot",
+      "tags": [
+        "Python",
+        "ROS2",
+        "PyQt5"
+      ],
+      "summary": "面向香橙派机器人，将底盘、激光雷达、IMU、视觉定位、机械臂与任务调度组织为多节点系统。",
+      "highlights": [
+        "以 ROS2 节点拆分感知、控制和任务流程。",
+        "提供 PyQt 操作界面、通信接口和启动配置。",
+        "配套数据集与平台笔记记录视觉及部署探索。"
+      ],
+      "note": "源码与启动配置可查；实物任务成功率和硬件分工未用推测数字替代。",
+      "featured": true,
+      "kind": "项目实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "bot",
+          "url": "https://github.com/daife/bot"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Nodes/control_center/control_center/control_center_node.py",
+          "url": "https://github.com/daife/bot/blob/8fb9f276fab8f4f80f7cf3a7ee13fb346bdd9c83/Nodes/control_center/control_center/control_center_node.py"
+        },
+        {
+          "label": "Nodes/paper_localizer/paper_localizer/paper_center_kalman_node.py",
+          "url": "https://github.com/daife/bot/blob/8fb9f276fab8f4f80f7cf3a7ee13fb346bdd9c83/Nodes/paper_localizer/paper_localizer/paper_center_kalman_node.py"
+        },
+        {
+          "label": "Nodes/ChushouTeyou/task_manager/task_manager/task_manager_node.py",
+          "url": "https://github.com/daife/bot/blob/8fb9f276fab8f4f80f7cf3a7ee13fb346bdd9c83/Nodes/ChushouTeyou/task_manager/task_manager/task_manager_node.py"
+        }
+      ]
+    },
+    {
+      "id": "sslflow-guard",
+      "name": "SSLFlow Guard",
+      "category": "tool",
+      "tags": [
+        "Java",
+        "ASM",
+        "Instrumentation"
+      ],
+      "summary": "针对 JDK HTTP TLS 读取的零进展循环，提供可预检、可重转换的 Java Agent 补丁。",
+      "highlights": [
+        "同时检查握手状态、消费/产出字节和剩余输入，限制补丁触发范围。",
+        "预检目标类、字段和调用点，不兼容时显式失败。",
+        "重定位 ASM 依赖，减少模块与类加载冲突。"
+      ],
+      "note": "依赖 JDK 内部结构，使用需匹配版本；未声称通用修复或性能提升比例。",
+      "featured": true,
+      "kind": "项目实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "sslflow-guard",
+          "url": "https://github.com/daife/sslflow-guard"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "src/main/java/dev/sslflowguard/SSLFlowGuardAgent.java",
+          "url": "https://github.com/daife/sslflow-guard/blob/4736b387b0a1ed8db88866b82c067f9379a69172/src/main/java/dev/sslflowguard/SSLFlowGuardAgent.java"
+        },
+        {
+          "label": "src/main/java/dev/sslflowguard/SSLFlowGuardTransformer.java",
+          "url": "https://github.com/daife/sslflow-guard/blob/4736b387b0a1ed8db88866b82c067f9379a69172/src/main/java/dev/sslflowguard/SSLFlowGuardTransformer.java"
+        },
+        {
+          "label": "src/main/java/dev/sslflowguard/AgentOptions.java",
+          "url": "https://github.com/daife/sslflow-guard/blob/4736b387b0a1ed8db88866b82c067f9379a69172/src/main/java/dev/sslflowguard/AgentOptions.java"
+        }
+      ]
+    },
+    {
+      "id": "qingjian",
+      "name": "青简 · 输入交互与云补全扩展",
+      "category": "opensource",
+      "tags": [
+        "Rust",
+        "Windows TSF",
+        "HTTP"
+      ],
+      "summary": "在开源青简输入法上扩展短按/长按状态、独立快捷键开关、英文云补全和情境提示。",
+      "highlights": [
+        "短按在释放时触发，长按达阈值即触发，并处理禁用后的按键释放。",
+        "区分中英文补全，增加场景参考和语言独立开关。",
+        "精简云请求字段并记录 token 用量，修正 Windows 设置布局。"
+      ],
+      "note": "输入法核心、词典与平台框架来自 qingjian-team/qingjian；这里展示个人功能增量。",
+      "featured": true,
+      "kind": "开源二次开发",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "qingjian",
+          "url": "https://github.com/daife/qingjian"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "apps/windows/server/src/dispatch/key/input.rs",
+          "url": "https://github.com/daife/qingjian/blob/e1e1525915e8e59be0d9a19e0fb9cb18e90d1abf/apps/windows/server/src/dispatch/key/input.rs"
+        },
+        {
+          "label": "apps/windows/server/src/dispatch/key/shortcut.rs",
+          "url": "https://github.com/daife/qingjian/blob/e1e1525915e8e59be0d9a19e0fb9cb18e90d1abf/apps/windows/server/src/dispatch/key/shortcut.rs"
+        },
+        {
+          "label": "apps/windows/server/tests/engine_loop/shortcuts.rs",
+          "url": "https://github.com/daife/qingjian/blob/e1e1525915e8e59be0d9a19e0fb9cb18e90d1abf/apps/windows/server/tests/engine_loop/shortcuts.rs"
+        }
+      ],
+      "upstream": {
+        "label": "上游 · qingjian-team/qingjian",
+        "url": "https://github.com/qingjian-team/qingjian"
+      }
+    },
+    {
+      "id": "echoo",
+      "name": "Echoo",
+      "category": "agent",
+      "tags": [
+        "TypeScript",
+        "React",
+        "MySQL",
+        "Redis",
+        "Kotlin"
+      ],
+      "summary": "围绕 AI 人物会话构建多端运行时、账号与媒体管理，以及可恢复的客户端同步。",
+      "highlights": [
+        "以持久化序号与游标补齐断线变更，过旧游标触发快照重建。",
+        "Android 原生后台连接与前台交接，保留同步状态。",
+        "持久化失败运行，并容错解析模型动作。"
+      ],
+      "note": "私有源码，仅展示项目概要；规划中的连接器不计入已实现功能。",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "situated-agent-kernel",
+      "name": "Situated Agent Kernel",
+      "category": "agent",
+      "tags": [
+        "TypeScript",
+        "Node.js",
+        "Plugins"
+      ],
+      "summary": "探索事件、上下文、计划、执行与状态记忆之间的可组合 Agent 内核。",
+      "highlights": [
+        "插件依赖检查、启动失败回收与逆序停止。",
+        "派生记忆保留来源版本，校验权限范围和生命周期。"
+      ],
+      "note": "原型；默认适配器为进程内存储，真实模型、持久化及群聊接入尚需宿主实现。",
+      "featured": false,
+      "kind": "内核原型",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "signex",
+      "name": "Signex",
+      "category": "agent",
+      "tags": [
+        "Python",
+        "Streamlit",
+        "SciPy",
+        "RAG"
+      ],
+      "summary": "随机信号分析课程实践：模型选择真实工具完成 FFT、PSD 等分析，并展示调用过程。",
+      "highlights": [
+        "按需加载 Skills，统一参数校验与工具分发。",
+        "结合 PDF 检索与可观察的工具执行轨迹。"
+      ],
+      "note": "课程实践；工具参数校验与主机权限隔离是不同机制。",
+      "featured": false,
+      "kind": "课程实践",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "line4love",
+      "name": "川遇 · line4love",
+      "category": "web",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "SQLite",
+        "uni-app"
+      ],
+      "summary": "校园社交匹配项目，连接账号与问卷、匹配结果、联系方式解锁及微信小程序入口。",
+      "highlights": [
+        "复用 web-view 业务页面，维护网页账号与微信身份绑定。",
+        "离线 matcher 校验题库与生成配置，执行规则打分和去重配对。"
+      ],
+      "note": "协作项目；matcher 使用确定性规则和贪心配对，AI 辅助配置与文案。真实使用规模未作量化声明。",
+      "featured": false,
+      "kind": "协作项目",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "danmaku2mc",
+      "name": "Danmaku2MC",
+      "category": "game",
+      "tags": [
+        "Java",
+        "WebSocket",
+        "Forge"
+      ],
+      "summary": "将直播弹幕事件桥接到 Minecraft，探索直播互动与游戏行为联动。",
+      "highlights": [],
+      "note": "直播抓取与协议部分有上游来源，游戏侧桥接分开描述。",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "ros-stm32",
+      "name": "STM32 小车与云台固件",
+      "category": "robot",
+      "tags": [
+        "C",
+        "STM32",
+        "UART DMA",
+        "PID"
+      ],
+      "summary": "在 MCU 端实现多轮 PID、云台俯仰、速度与参数串口接收、PWM 输出及里程计反馈。",
+      "highlights": [],
+      "note": "仓库名为 ros-stm32；当前材料体现 MCU 控制固件，未据此认定完整 ROS 导航或系统联调。",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "swarm-ros",
+      "name": "追捕与逃逸仿真 · swarm-ros",
+      "category": "robot",
+      "tags": [
+        "Python",
+        "ROS2",
+        "Gazebo",
+        "强化学习"
+      ],
+      "summary": "组织追捕者与逃逸者的仿真训练、回合重置和策略执行，包含 CBC-TP Actor/Critic 与目标预测网络。",
+      "highlights": [],
+      "note": "仿真研究，未据此声称实机无人机集群部署。",
+      "featured": false,
+      "kind": "仿真研究",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "dian-c",
+      "name": "相机识别与硬件联调 · Dian_C",
+      "category": "robot",
+      "tags": [
+        "Python",
+        "OpenCV",
+        "ONNX",
+        "PyQt5"
+      ],
+      "summary": "相机预览、轮廓与数字识别，以及通过 I2C 读取 INA226 电流的联调程序。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "Dian_C",
+          "url": "https://github.com/daife/Dian_C"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "main.py",
+          "url": "https://github.com/daife/Dian_C/blob/2459427cf341af2f43ac2bfa74ebef6aa5dc0b5c/main.py"
+        },
+        {
+          "label": "digit_re.py",
+          "url": "https://github.com/daife/Dian_C/blob/2459427cf341af2f43ac2bfa74ebef6aa5dc0b5c/digit_re.py"
+        },
+        {
+          "label": "digitsp.py",
+          "url": "https://github.com/daife/Dian_C/blob/2459427cf341af2f43ac2bfa74ebef6aa5dc0b5c/digitsp.py"
+        }
+      ]
+    },
+    {
+      "id": "syber-wand",
+      "name": "赛博魔杖 · Syber_wand",
+      "category": "robot",
+      "tags": [
+        "嵌入式",
+        "HID",
+        "语音",
+        "姿态"
+      ],
+      "summary": "用姿态、语音与无线通信触发 HID 和家电控制，结合硬件与外壳设计。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "Syber_wand",
+          "url": "https://github.com/daife/Syber_wand"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "README.md",
+          "url": "https://github.com/daife/Syber_wand/blob/bc99a3e750ff4bc33f2f149c9eec7785d9418a45/README.md"
+        },
+        {
+          "label": "Software/Wand/Core/Src/main.c",
+          "url": "https://github.com/daife/Syber_wand/blob/bc99a3e750ff4bc33f2f149c9eec7785d9418a45/Software/Wand/Core/Src/main.c"
+        },
+        {
+          "label": "Software/Cyberwand_app/app/src/main/AndroidManifest.xml",
+          "url": "https://github.com/daife/Syber_wand/blob/bc99a3e750ff4bc33f2f149c9eec7785d9418a45/Software/Cyberwand_app/app/src/main/AndroidManifest.xml"
+        }
+      ]
+    },
+    {
+      "id": "moving-traker",
+      "name": "双轴云台 · Moving_traker",
+      "category": "robot",
+      "tags": [
+        "STM32",
+        "蓝牙",
+        "舵机"
+      ],
+      "summary": "通过手持姿态遥控器或 Android 蓝牙控制双轴舵机云台。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "硬件探索",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "Moving_traker",
+          "url": "https://github.com/daife/Moving_traker"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Software/Master2/Core/Src/main.c",
+          "url": "https://github.com/daife/Moving_traker/blob/d67b11bdeca226541fe83ebc683b694e5f245499/Software/Master2/Core/Src/main.c"
+        },
+        {
+          "label": "Software/Slave/Core/Src/main.c",
+          "url": "https://github.com/daife/Moving_traker/blob/d67b11bdeca226541fe83ebc683b694e5f245499/Software/Slave/Core/Src/main.c"
+        },
+        {
+          "label": "Software/CRMaster/app/src/main/java/com/example/crmaster/MainActivity.java",
+          "url": "https://github.com/daife/Moving_traker/blob/d67b11bdeca226541fe83ebc683b694e5f245499/Software/CRMaster/app/src/main/java/com/example/crmaster/MainActivity.java"
+        }
+      ]
+    },
+    {
+      "id": "pid-stick",
+      "name": "风力姿态平衡 · PID_Stick",
+      "category": "robot",
+      "tags": [
+        "STM32",
+        "PID",
+        "IMU"
+      ],
+      "summary": "通过惯性测量与风力驱动探索筷子姿态平衡。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "控制原型",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "PID_Stick",
+          "url": "https://github.com/daife/PID_Stick"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Software/PIDStick2/Core/Src/main.c",
+          "url": "https://github.com/daife/PID_Stick/blob/0619d8bff58c66fcb3204fff63f251a33f1d5b08/Software/PIDStick2/Core/Src/main.c"
+        },
+        {
+          "label": "Software/PIDStick2/Core/Src/motion/motion_interface.c",
+          "url": "https://github.com/daife/PID_Stick/blob/0619d8bff58c66fcb3204fff63f251a33f1d5b08/Software/PIDStick2/Core/Src/motion/motion_interface.c"
+        },
+        {
+          "label": "Software/PIDStick2/Core/Src/drv8833.c",
+          "url": "https://github.com/daife/PID_Stick/blob/0619d8bff58c66fcb3204fff63f251a33f1d5b08/Software/PIDStick2/Core/Src/drv8833.c"
+        }
+      ]
+    },
+    {
+      "id": "ups",
+      "name": "UPS 电源控制",
+      "category": "robot",
+      "tags": [
+        "MCU",
+        "电源",
+        "串口"
+      ],
+      "summary": "使用 MCU 控制电源芯片，并向上位机反馈电池电压。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "硬件探索",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "UPS",
+          "url": "https://github.com/daife/UPS"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "UPS/Core/Src/main.c",
+          "url": "https://github.com/daife/UPS/blob/67672528f1404b2361213e8ee32f058bad04f4c0/UPS/Core/Src/main.c"
+        },
+        {
+          "label": "SC8815.c",
+          "url": "https://github.com/daife/UPS/blob/67672528f1404b2361213e8ee32f058bad04f4c0/UPS/Core/Src/SC8815.c"
+        },
+        {
+          "label": "数控UPS.epro",
+          "url": "https://github.com/daife/UPS/blob/67672528f1404b2361213e8ee32f058bad04f4c0/数控UPS.epro"
+        }
+      ]
+    },
+    {
+      "id": "writing-machine",
+      "name": "写字机工作台",
+      "category": "robot",
+      "tags": [
+        "Python",
+        "Tkinter",
+        "OpenCV",
+        "G-code"
+      ],
+      "summary": "从参考纸张与字迹图层到骨架轨迹、像素毫米映射、G-code 导出和双向串口诊断。",
+      "highlights": [],
+      "note": "骨架轨迹与真实笔顺分别处理；执行效果取决于设备与参数。",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "addrmsnormbias-910b",
+      "name": "AddRmsNormBias · Ascend 910B",
+      "category": "compute",
+      "tags": [
+        "Ascend C",
+        "NPU",
+        "Tiling",
+        "Profiling"
+      ],
+      "summary": "融合 residual add、RMSNorm 与逐通道 bias，探索按 shape/dtype 派发、UB tiling 和流水同步。",
+      "highlights": [
+        "围绕真机画像迭代不同输入形状和数据类型的内核。"
+      ],
+      "note": "调优中；历史局部收益不代表整体性能，最新候选的完整精度与性能尚未收敛。",
+      "featured": false,
+      "kind": "算子调优",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "ofdm-ursp-npu",
+      "name": "OFDM 计算图与 NPU 部署",
+      "category": "compute",
+      "tags": [
+        "Python",
+        "OFDM",
+        "ONNX",
+        "Ascend"
+      ],
+      "summary": "将复数 DFT/IDFT、FFT、导频与信道处理及 LDPC 编码组织为可导出的计算图，探索 NPU 推理。",
+      "highlights": [],
+      "note": "固定权重变换计算图；吞吐与数值收益需用硬件对照验证。",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "OFDM_URSP_NPU",
+          "url": "https://github.com/daife/OFDM_URSP_NPU"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "DFT/dft256_mat.py",
+          "url": "https://github.com/daife/OFDM_URSP_NPU/blob/b0175001733167844b9918dbb21e1a1fb6e1d87e/DFT/dft256_mat.py"
+        },
+        {
+          "label": "FFT/fft256.py",
+          "url": "https://github.com/daife/OFDM_URSP_NPU/blob/b0175001733167844b9918dbb21e1a1fb6e1d87e/FFT/fft256.py"
+        },
+        {
+          "label": "ofdm_generator_steps.md",
+          "url": "https://github.com/daife/OFDM_URSP_NPU/blob/b0175001733167844b9918dbb21e1a1fb6e1d87e/ofdm_generator_steps.md"
+        }
+      ]
+    },
+    {
+      "id": "pdistcustom",
+      "name": "Pdist 自定义算子",
+      "category": "compute",
+      "tags": [
+        "Ascend C",
+        "C++",
+        "NPU"
+      ],
+      "summary": "昇腾自定义距离计算算子实践，记录算子开发、编译与调用流程。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "算子实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "PdistCustom",
+          "url": "https://github.com/daife/PdistCustom"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "op_host/pdist_custom.cpp",
+          "url": "https://github.com/daife/PdistCustom/blob/4b91f2d3768b81196d4e55adfef46922b0c1f22f/op_host/pdist_custom.cpp"
+        },
+        {
+          "label": "op_kernel/pdist_custom.cpp",
+          "url": "https://github.com/daife/PdistCustom/blob/4b91f2d3768b81196d4e55adfef46922b0c1f22f/op_kernel/pdist_custom.cpp"
+        },
+        {
+          "label": "st_test/expect_func.py",
+          "url": "https://github.com/daife/PdistCustom/blob/4b91f2d3768b81196d4e55adfef46922b0c1f22f/st_test/expect_func.py"
+        }
+      ]
+    },
+    {
+      "id": "drone-swarm",
+      "name": "非高斯噪声下的状态估计",
+      "category": "compute",
+      "tags": [
+        "Python",
+        "Matlab",
+        "Kalman",
+        "GRU"
+      ],
+      "summary": "比较 KF、BIKF、VBKF 与学习增强状态估计方法，结合滤波研究与仿真实验。",
+      "highlights": [],
+      "note": "仓库名为 Drone-Swarm，实际内容以状态估计研究为主。",
+      "featured": false,
+      "kind": "研究探索",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "shotocr",
+      "name": "ShotOcr · Python → C++",
+      "category": "vision",
+      "tags": [
+        "Python",
+        "C++",
+        "Win32",
+        "OCR"
+      ],
+      "summary": "快捷键截图识别与语音转文字桌面工具，从 Python 实现迁移到 C++ Windows 原生版本。",
+      "highlights": [],
+      "note": "两种实现合并展示，分别提供源码入口。",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "ShotOcr",
+          "url": "https://github.com/daife/ShotOcr"
+        },
+        {
+          "name": "ShotOcr_C",
+          "url": "https://github.com/daife/ShotOcr_C"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "README.md",
+          "url": "https://github.com/daife/ShotOcr/blob/0ae76f236b366ed8f590667f1bc71ee8d742ce2d/README.md"
+        },
+        {
+          "label": "main.py",
+          "url": "https://github.com/daife/ShotOcr/blob/0ae76f236b366ed8f590667f1bc71ee8d742ce2d/main.py"
+        },
+        {
+          "label": "screen_capture.py",
+          "url": "https://github.com/daife/ShotOcr/blob/0ae76f236b366ed8f590667f1bc71ee8d742ce2d/screen_capture.py"
+        }
+      ]
+    },
+    {
+      "id": "lightflows",
+      "name": "LightFlows · 词典笔输入",
+      "category": "vision",
+      "tags": [
+        "Android",
+        "Kotlin",
+        "OpenCV",
+        "OCR"
+      ],
+      "summary": "为 Android 词典笔提供扫描文字与语音输入交互，探索特征匹配、图像拼接与识别接口。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "LightFlows",
+          "url": "https://github.com/daife/LightFlows"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "LightFlows/app/src/main/java/com/dypho/lightflows/FastInputIME.java",
+          "url": "https://github.com/daife/LightFlows/blob/af117f105e9b7a14354bc0137a8174e2d55500fd/LightFlows/app/src/main/java/com/dypho/lightflows/FastInputIME.java"
+        },
+        {
+          "label": "LightFlows/app/src/main/java/com/dypho/lightflows/Catcher.java",
+          "url": "https://github.com/daife/LightFlows/blob/af117f105e9b7a14354bc0137a8174e2d55500fd/LightFlows/app/src/main/java/com/dypho/lightflows/Catcher.java"
+        },
+        {
+          "label": "LightFlows/app/src/main/java/com/dypho/lightflows/CameraMovementEstimator.java",
+          "url": "https://github.com/daife/LightFlows/blob/af117f105e9b7a14354bc0137a8174e2d55500fd/LightFlows/app/src/main/java/com/dypho/lightflows/CameraMovementEstimator.java"
+        }
+      ]
+    },
+    {
+      "id": "roughdict",
+      "name": "Roughdict",
+      "category": "vision",
+      "tags": [
+        "Android",
+        "词典",
+        "语言学习"
+      ],
+      "summary": "在手机端查询词义，通过关联词跳转继续学习。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "早期实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "roughdict",
+          "url": "https://github.com/daife/roughdict"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "roughdict/app/src/main/java/com/dypho/roughdict/MainActivity.java",
+          "url": "https://github.com/daife/roughdict/blob/a9a9cb93f042a7d7cf64a3eeb689e290009159eb/roughdict/app/src/main/java/com/dypho/roughdict/MainActivity.java"
+        },
+        {
+          "label": "roughdict/app/src/main/java/com/dypho/roughdict/HttpsUtils.java",
+          "url": "https://github.com/daife/roughdict/blob/a9a9cb93f042a7d7cf64a3eeb689e290009159eb/roughdict/app/src/main/java/com/dypho/roughdict/HttpsUtils.java"
+        },
+        {
+          "label": "roughdict/app/src/main/java/com/dypho/roughdict/Utils.java",
+          "url": "https://github.com/daife/roughdict/blob/a9a9cb93f042a7d7cf64a3eeb689e290009159eb/roughdict/app/src/main/java/com/dypho/roughdict/Utils.java"
+        }
+      ]
+    },
+    {
+      "id": "wordshelper",
+      "name": "WordsHelper",
+      "category": "vision",
+      "tags": [
+        "Python",
+        "Flask",
+        "SQLite",
+        "语言学习"
+      ],
+      "summary": "整合词库、派生词练习与动态复习计划，辅助英语词汇学习。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "rel-word-creater",
+      "name": "派生词生成与练习",
+      "category": "vision",
+      "tags": [
+        "Python",
+        "JSON",
+        "词根"
+      ],
+      "summary": "生成可复用的词根、派生词与释义数据，按同一 JSON 契约组织选择题练习。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "工具实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "rel_word_creater",
+          "url": "https://github.com/daife/rel_word_creater"
+        },
+        {
+          "name": "rel_word_test",
+          "url": "https://github.com/daife/rel_word_test"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "README.md",
+          "url": "https://github.com/daife/rel_word_creater/blob/ad251d705e1d3a42b33d3f4bcce6c2290a658723/README.md"
+        },
+        {
+          "label": "rel_word_creater/app/src/main/java/com/example/creator/HttpsUtils.java",
+          "url": "https://github.com/daife/rel_word_creater/blob/ad251d705e1d3a42b33d3f4bcce6c2290a658723/rel_word_creater/app/src/main/java/com/example/creator/HttpsUtils.java"
+        },
+        {
+          "label": "rel_word_creater/app/src/main/java/com/example/creator/Utils.java",
+          "url": "https://github.com/daife/rel_word_creater/blob/ad251d705e1d3a42b33d3f4bcce6c2290a658723/rel_word_creater/app/src/main/java/com/example/creator/Utils.java"
+        }
+      ]
+    },
+    {
+      "id": "kanavox",
+      "name": "KanaVox",
+      "category": "vision",
+      "tags": [
+        "Kotlin",
+        "Android",
+        "Compose"
+      ],
+      "summary": "围绕日语假名学习与练习构建 Android 界面和交互。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "youdao-public",
+      "name": "有道接口客户端",
+      "category": "vision",
+      "tags": [
+        "Python",
+        "OCR",
+        "翻译",
+        "语音"
+      ],
+      "summary": "将词典、翻译、OCR 与语音接口组织为可复用客户端，并记录各接口验证范围。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "项目实践",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "yolo-test",
+      "name": "YOLO / 昇腾视觉实验",
+      "category": "vision",
+      "tags": [
+        "Python",
+        "YOLO",
+        "Ascend",
+        "相机"
+      ],
+      "summary": "探索昇腾推理、DVPP、相机标定与不同检测 pipeline。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "视觉实验",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "image-catcher",
+      "name": "手柄触发采图",
+      "category": "vision",
+      "tags": [
+        "Python",
+        "OpenCV",
+        "手柄"
+      ],
+      "summary": "用手柄按钮释放事件捕获相机帧，按编号保存以辅助数据采集。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "小型工具",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "image-catcher",
+          "url": "https://github.com/daife/image-catcher"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "joystick_screenshot.py",
+          "url": "https://github.com/daife/image-catcher/blob/fbc94742b4f76680d77355572ee70db9c0d121d9/joystick_screenshot.py"
+        },
+        {
+          "label": "首次记录",
+          "url": "https://github.com/daife/image-catcher/commit/fbc94742b4f76680d77355572ee70db9c0d121d9"
+        },
+        {
+          "label": "HEAD",
+          "url": "https://github.com/daife/image-catcher/commit/fbc94742b4f76680d77355572ee70db9c0d121d9"
+        }
+      ]
+    },
+    {
+      "id": "pulsejet",
+      "name": "PulseJet",
+      "category": "tool",
+      "tags": [
+        "Kotlin",
+        "Android",
+        "BLE",
+        "Room"
+      ],
+      "summary": "扫描并连接蓝牙心率设备，提供实时 BPM 界面、前台服务与本地记录。",
+      "highlights": [],
+      "note": "应用原型，设备兼容范围以实际测试为准。",
+      "featured": false,
+      "kind": "应用原型",
+      "visibility": "私有项目",
+      "repos": [],
+      "evidence": []
+    },
+    {
+      "id": "microphone-visualizer",
+      "name": "拍击声音频谱实验",
+      "category": "tool",
+      "tags": [
+        "Java",
+        "Android",
+        "FFT"
+      ],
+      "summary": "采集麦克风信号并可视化频谱，探索拍击声音与西瓜成熟度之间的经验判定。",
+      "highlights": [],
+      "note": "经验阈值实验；未声称成熟度预测准确率。",
+      "featured": false,
+      "kind": "早期实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "microphone_visualizer",
+          "url": "https://github.com/daife/microphone_visualizer"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "app/src/main/java/com/dypho/audiovisualization/AudioVisualizationActivity.java",
+          "url": "https://github.com/daife/microphone_visualizer/blob/7309c10e86b5ae4443c5f07473531feb000b38f4/app/src/main/java/com/dypho/audiovisualization/AudioVisualizationActivity.java"
+        },
+        {
+          "label": "app/src/main/java/com/dypho/audiovisualization/WaveformView.java",
+          "url": "https://github.com/daife/microphone_visualizer/blob/7309c10e86b5ae4443c5f07473531feb000b38f4/app/src/main/java/com/dypho/audiovisualization/WaveformView.java"
+        },
+        {
+          "label": "README.md",
+          "url": "https://github.com/daife/microphone_visualizer/blob/7309c10e86b5ae4443c5f07473531feb000b38f4/README.md"
+        }
+      ]
+    },
+    {
+      "id": "magpie",
+      "name": "Magpie · AMD 运行时接入",
+      "category": "opensource",
+      "tags": [
+        "C++",
+        "HLSL",
+        "D3D11",
+        "D3D12"
+      ],
+      "summary": "在个人功能分支接入 AMDNR/lmxxf 运行时，处理共享纹理、Fence 同步、参数缓存和 resize 重建。",
+      "highlights": [],
+      "note": "贡献位于 feat/amd-lmxxf-nr；Magpie、网络模型与运行时来自上游及第三方。",
+      "featured": false,
+      "kind": "开源二次开发",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "Magpie",
+          "url": "https://github.com/daife/Magpie/tree/feat/amd-lmxxf-nr"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "docs/experimental/effects/AMDNR.md",
+          "url": "https://github.com/daife/Magpie/blob/448b2f3b95fa8085672e3f56c8ed35dbd2a8b98c/docs/experimental/effects/AMDNR.md"
+        },
+        {
+          "label": "src/Magpie.Core/AmdLmxxfNRFilter.cpp",
+          "url": "https://github.com/daife/Magpie/blob/448b2f3b95fa8085672e3f56c8ed35dbd2a8b98c/src/Magpie.Core/AmdLmxxfNRFilter.cpp"
+        },
+        {
+          "label": "src/Magpie.Core/include/LmxxfNrApi.h",
+          "url": "https://github.com/daife/Magpie/blob/448b2f3b95fa8085672e3f56c8ed35dbd2a8b98c/src/Magpie.Core/include/LmxxfNrApi.h"
+        }
+      ],
+      "upstream": {
+        "label": "上游 · SAOG0721/Magpie",
+        "url": "https://github.com/SAOG0721/Magpie"
+      }
+    },
+    {
+      "id": "touhoulittlemaid",
+      "name": "车万女仆 · 模型与会话适配",
+      "category": "opensource",
+      "tags": [
+        "Java",
+        "Forge",
+        "LLM",
+        "TTS"
+      ],
+      "summary": "增加 TTS 提供方模型选项与界面字段，区分实体主会话和子会话的请求标识。",
+      "highlights": [],
+      "note": "上游 TartaricAcid/TouhouLittleMaid；个人增量为接口与会话路由适配。",
+      "featured": false,
+      "kind": "开源二次开发",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "TouhouLittleMaid",
+          "url": "https://github.com/daife/TouhouLittleMaid"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/manager/entity/LLMCallback.java",
+          "url": "https://github.com/daife/TouhouLittleMaid/blob/ee1c5242822be58d271c3e3a6b3910c2255af599/src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/manager/entity/LLMCallback.java"
+        },
+        {
+          "label": "src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/manager/entity/grounded/GroundedAnswerCallback.java",
+          "url": "https://github.com/daife/TouhouLittleMaid/blob/ee1c5242822be58d271c3e3a6b3910c2255af599/src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/manager/entity/grounded/GroundedAnswerCallback.java"
+        },
+        {
+          "label": "src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/service/llm/openai/LLMOpenAIClient.java",
+          "url": "https://github.com/daife/TouhouLittleMaid/blob/ee1c5242822be58d271c3e3a6b3910c2255af599/src/main/java/com/github/tartaricacid/touhoulittlemaid/ai/service/llm/openai/LLMOpenAIClient.java"
+        }
+      ],
+      "upstream": {
+        "label": "上游 · TartaricAcid/TouhouLittleMaid",
+        "url": "https://github.com/TartaricAcid/TouhouLittleMaid"
+      }
+    },
+    {
+      "id": "baritone",
+      "name": "Baritone · 1.20.1 工具链适配",
+      "category": "opensource",
+      "tags": [
+        "Java",
+        "Gradle",
+        "Forge",
+        "Mojmap"
+      ],
+      "summary": "在 1.20.1 分支调整 Forge 构建与映射转换，清理旧工具链模块。",
+      "highlights": [],
+      "note": "上游 cabaletta/baritone；寻路算法属于上游，个人工作聚焦构建适配。",
+      "featured": false,
+      "kind": "开源适配",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "baritone",
+          "url": "https://github.com/daife/baritone/tree/1.20.1"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "build.gradle",
+          "url": "https://github.com/daife/baritone/blob/2e52d6e8ec8fc3a359d636bf136e6f723830dd9b/build.gradle"
+        },
+        {
+          "label": "forge/build.gradle",
+          "url": "https://github.com/daife/baritone/blob/2e52d6e8ec8fc3a359d636bf136e6f723830dd9b/forge/build.gradle"
+        },
+        {
+          "label": "gradle.properties",
+          "url": "https://github.com/daife/baritone/blob/2e52d6e8ec8fc3a359d636bf136e6f723830dd9b/gradle.properties"
+        }
+      ],
+      "upstream": {
+        "label": "上游 · cabaletta/baritone",
+        "url": "https://github.com/cabaletta/baritone"
+      }
+    },
+    {
+      "id": "mc-leashplayers",
+      "name": "玩家拴绳 · Forge 适配",
+      "category": "opensource",
+      "tags": [
+        "Java",
+        "Mixin",
+        "Forge",
+        "Gradle"
+      ],
+      "summary": "适配 Minecraft 1.20.1 / Forge 的依赖、Mixin 签名、GameRules 注册和资源格式。",
+      "highlights": [],
+      "note": "上游 pog5/mc-leashplayers；个人改动位于 forge-1.20.1-47.4.23 分支。",
+      "featured": false,
+      "kind": "开源适配",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "mc-leashplayers",
+          "url": "https://github.com/daife/mc-leashplayers/tree/forge-1.20.1-47.4.23"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "gradle.properties",
+          "url": "https://github.com/daife/mc-leashplayers/blob/a0fa27d43e70df7ed2a1215275cad4112691eb98/gradle.properties"
+        },
+        {
+          "label": "build.gradle",
+          "url": "https://github.com/daife/mc-leashplayers/blob/a0fa27d43e70df7ed2a1215275cad4112691eb98/build.gradle"
+        },
+        {
+          "label": "forge/build.gradle",
+          "url": "https://github.com/daife/mc-leashplayers/blob/a0fa27d43e70df7ed2a1215275cad4112691eb98/forge/build.gradle"
+        }
+      ],
+      "upstream": {
+        "label": "上游 · pog5/mc-leashplayers",
+        "url": "https://github.com/pog5/mc-leashplayers"
+      }
+    },
+    {
+      "id": "latent-kalmannet-tsp",
+      "name": "Latent KalmanNet · 工程复现",
+      "category": "learning",
+      "tags": [
+        "Python",
+        "PyTorch",
+        "Kalman",
+        "CPU & CUDA"
+      ],
+      "summary": "整理论文与代码对应关系，修复设备、依赖和路径问题，补充 CPU 支持与一键实验入口。",
+      "highlights": [],
+      "note": "算法来自 KalmanNet 上游；个人工作为工程复现与运行修复，最终误差须按论文口径比较。",
+      "featured": false,
+      "kind": "科研复现",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "Latent_KalmanNet_TSP",
+          "url": "https://github.com/daife/Latent_KalmanNet_TSP"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Pipeline_KF_visual_gpu.py",
+          "url": "https://github.com/daife/Latent_KalmanNet_TSP/blob/38b9bb9d5c67dbfa31663a6eab80561cfb5173a0/Pipeline_KF_visual_gpu.py"
+        },
+        {
+          "label": "KalmanNet_nn_visual_new_architecture_gpu.py",
+          "url": "https://github.com/daife/Latent_KalmanNet_TSP/blob/38b9bb9d5c67dbfa31663a6eab80561cfb5173a0/KalmanNet_nn_visual_new_architecture_gpu.py"
+        },
+        {
+          "label": "main_AE.py",
+          "url": "https://github.com/daife/Latent_KalmanNet_TSP/blob/38b9bb9d5c67dbfa31663a6eab80561cfb5173a0/main_AE.py"
+        }
+      ],
+      "upstream": {
+        "label": "上游 · KalmanNet/Latent_KalmanNet_TSP",
+        "url": "https://github.com/KalmanNet/Latent_KalmanNet_TSP"
+      }
+    },
+    {
+      "id": "dip-experiment1",
+      "name": "漫画人脸检测与关键点实验",
+      "category": "learning",
+      "tags": [
+        "Python",
+        "OpenCV",
+        "Cascade",
+        "HOG",
+        "Ridge"
+      ],
+      "summary": "从整数通道与像素差弱树构建级联检测，结合困难负样本、NMS、RBF 复核、框修正和关键点回归。",
+      "highlights": [],
+      "note": "课程实验；HRNet 教师与数据来自第三方，已接触测试集，现有指标不作为独立盲测结论。",
+      "featured": false,
+      "kind": "课程实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "DIP-experiment1",
+          "url": "https://github.com/daife/DIP-experiment1"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "README.md",
+          "url": "https://github.com/daife/DIP-experiment1/blob/5937bccf919f45d04eb79f6baf49acfbc2b06e19/README.md"
+        },
+        {
+          "label": "src/channels11.py",
+          "url": "https://github.com/daife/DIP-experiment1/blob/5937bccf919f45d04eb79f6baf49acfbc2b06e19/src/channels11.py"
+        },
+        {
+          "label": "src/weak_tree_training.py",
+          "url": "https://github.com/daife/DIP-experiment1/blob/5937bccf919f45d04eb79f6baf49acfbc2b06e19/src/weak_tree_training.py"
+        }
+      ]
+    },
+    {
+      "id": "ai-foundations-course",
+      "name": "AI 基础课程实践",
+      "category": "learning",
+      "tags": [
+        "Python",
+        "NumPy",
+        "sklearn",
+        "PyTorch"
+      ],
+      "summary": "围绕数据处理、可视化、图像处理、训练观察与目标检测组织课程练习。",
+      "highlights": [],
+      "note": "",
+      "featured": false,
+      "kind": "课程实践",
+      "visibility": "公开源码",
+      "repos": [
+        {
+          "name": "AI-Foundations-Course",
+          "url": "https://github.com/daife/AI-Foundations-Course"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "prog1/kmeans.py",
+          "url": "https://github.com/daife/AI-Foundations-Course/blob/514d095ffd574785a48f06992766416373603375/prog1/kmeans.py"
+        },
+        {
+          "label": "prog2/classifier.py",
+          "url": "https://github.com/daife/AI-Foundations-Course/blob/514d095ffd574785a48f06992766416373603375/prog2/classifier.py"
+        },
+        {
+          "label": "prog3/LD_experiment_common.py",
+          "url": "https://github.com/daife/AI-Foundations-Course/blob/514d095ffd574785a48f06992766416373603375/prog3/LD_experiment_common.py"
+        }
+      ]
+    }
+  ]
+}
